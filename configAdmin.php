@@ -33,11 +33,11 @@
                 <i class="fa fa-user" aria-hidden="true"></i> &nbsp; Ususarios
               </a>
             </li>
-            <!-- <li>
+            <li>
               <a href="configAdmin.php?view=bank">
                 <i class="fa fa-university" aria-hidden="true"></i> &nbsp; Cuenta bancaria
               </a>
-            </li> -->
+            </li> 
             <li>
               <a href="configAdmin.php?view=account">
                 <i class="fa fa-address-card" aria-hidden="true"></i> &nbsp; Mi cuenta
