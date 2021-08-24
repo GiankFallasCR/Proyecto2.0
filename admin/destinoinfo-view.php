@@ -73,40 +73,7 @@
                             <div class="col-xs-12">
                                 <legend>Categoría, proveedor y estado</legend>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                              <div class="form-group">
-                                <label>Categoría</label>
-                                <select class="form-control" name="prod-categoria">
-                                    <?php
-                                        $categoria=ejecutarSQL::consultar("SELECT * FROM categoria");
-                                        while($catec=mysqli_fetch_array($categoria, MYSQLI_ASSOC)){
-                                        	if($prod['CodigoCat']==$catec['CodigoCat']){
-                                            	echo '<option selected="" value="'.$catec['CodigoCat'].'">'.$catec['Nombre'].' (Actual)</option>';
-                                        	}else{
-                                        		echo '<option value="'.$catec['CodigoCat'].'">'.$catec['Nombre'].'</option>';
-                                        	}
-                                        }
-                                    ?>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                              <div class="form-group">
-                                <label>Proveedor</label>
-                                <select class="form-control" name="prod-codigoP">
-                                    <?php
-                                        $proveedor=ejecutarSQL::consultar("SELECT * FROM proveedor");
-                                        while($prov=mysqli_fetch_array($proveedor, MYSQLI_ASSOC)){
-                                        	if($prod['CedulaProveedor']==$prov['CedulaProveedor']){
-                                        		echo '<option selected="" value="'.$prov['CedulaProveedor'].'">'.$prov['NombreProveedor'].' (Actual)</option>';
-                                        	}else{
-                                            	echo '<option value="'.$prov['CedulaProveedor'].'">'.$prov['NombreProveedor'].'</option>';	
-                                        	}
-                                        }
-                                    ?>
-                                </select>
-                              </div>
-                            </div>
+                           
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group">
                                 <label>Estado</label>
