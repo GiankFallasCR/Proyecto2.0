@@ -114,6 +114,54 @@
             </div>
         </div>
     </section>
+    <section id="new-prod-index">
+        
+        <ul class="gallery-ul">
+            <li>
+                <img src="https://pix10.agoda.net/geo/country/40/3_40_costa_rica_02.jpg?s=1920x" alt="Playa Manuel Antonio" loading="lazy">
+            </li>
+            <li>
+                <img src="https://i.pinimg.com/originals/3b/25/68/3b2568f411315714f55db8019f8d8549.jpg" alt="Colibri Snowcap" loading="lazy">
+            </li>
+            <li>
+                <img src="https://www.ballenaparadise.com/wp-content/uploads/2019/06/Cataratas-Nauyacas-768x1024.jpg" alt="Catarata Nauyaca" loading="lazy">
+            </li>
+            <li>
+                <img src="https://la.network/wp-content/uploads/2017/01/SAN-JOSE-DE-COSTA-RICA-TEATRO-NACIONAL-DE-NOCHE-Mihai-Bogdan-Lazar-Shutterstock.com_.jpg" alt="Volcan Poas" loading="lazy">
+            </li>
+            <li>
+                <img src="http://puravida.com/wp-content/uploads/2012/10/poas_volcano_costa_rica.jpg" alt="Volcan Poas" loading="lazy">
+            </li>
+            <li>
+                <img src="https://www.thetinytravelogue.com/wp-content/uploads/2017/03/vargas-beachJPG-e1490657525384-1596x860.jpg" alt="Playa Cahuita" loading="lazy">
+            </li>
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Bothriechis_schlegelii_%28La_Selva_Biological_Station%29.jpg" alt="Bocaraca" loading="lazy">
+            </li>
+            <li>
+                <img src="https://imagenes.20minutos.es/files/article_amp/uploads/imagenes/2020/02/21/perezoso.jpeg" alt="Perezoso" loading="lazy">
+            </li>
+            <li>
+                <img src="https://dsvsbigncb06y.cloudfront.net/site/diving/costa-rica/liveabaord-costa-rica-cocos-island-xxl.jpg" alt="Tiburones Martillo" loading="lazy">
+            </li>
+            <li></li>
+        </ul>
+        <br>
+        <div id="reg-info-index" class="container-maps">
+            <div class="mapa">
+                <br>
+                <label>Mapa del país más Pura Vida</label>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396413.6873579416!2d-86.0143344994025!3d8.655902192118875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f92e56221acc925%3A0x6254f72535819a2b!2sCosta%20Rica!5e0!3m2!1sen!2sgt!4v1623908071667!5m2!1sen!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+                <br>
+                <label>Con <a href="https://www.google.com.gt/maps/place/" target="_blank">Tiquica</a></label>
+                <br>
+                <!--Con los parámetros que debes sustituir, imaginando que es php ya que no especificas, quedaría así:-->
+                <a href="https://www.google.com.gt/maps/@<?php echo $valor1 ?>,<?php echo $valor2 ?>,15z" target="_blank">La Finca</a>
+            </div>
+        </div>
+    </section>
 
     <?php include './inc/footer.php'; ?>
 </body>
