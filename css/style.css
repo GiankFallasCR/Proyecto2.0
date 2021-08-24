@@ -168,20 +168,20 @@ footer a {
 }
 
 
-/* ========================================= product styles ======================================*/
+/* ========================================= destino styles ======================================*/
 
-#container-page-product {
+#container-page-destino {
     background-image: url(../assets/img/font-registration.JPG);
 }
 
 #store,
-#infoproduct,
+#infodestino,
 #container-pedido {
     background-color: rgba(255, 255, 255, .97);
     min-height: 900px;
 }
 
-.img-product {
+.img-destino {
     max-height: 250px;
     display: block;
     margin: 0 auto;
@@ -219,7 +219,7 @@ footer a {
     background-image: url(../assets/img/font-registration.JPG);
 }
 
-#prove-product-cat-config {
+#prove-destino-cat-config {
     background-color: #fff;
     min-height: 900px;
 }
