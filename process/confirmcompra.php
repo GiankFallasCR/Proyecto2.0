@@ -3,7 +3,6 @@ session_start();
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 $NumDepo=consultasSQL::clean_string($_POST['NumDepo']);
-$tipoenvio=consultasSQL::clean_string($_POST['tipo-envio']);
 $Cedclien=consultasSQL::clean_string($_POST['Cedclien']);
 $comprobanteTMP=$_FILES['comprobante']['tmp_name'];
 $comprobanteName=$_FILES['comprobante']['name'];
@@ -56,7 +55,7 @@ if(mysqli_num_rows($verdata)>=1){
         }
         mysqli_free_result($consulta);
     }
-    if(consultasSQL::InsertSQL("venta", "Fecha, Cedula, TotalPagar, Estado, NumeroDeposito, TipoEnvio, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$tipoenvio','$comprobanteF'")){
+    if(consultasSQL::InsertSQL("venta", "Fecha, Cedula, TotalPagar, Estado, NumeroDeposito, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$tipoenvio','$comprobanteF'")){
 
       /*recuperando el número del pedido actual*/
       $verId=ejecutarSQL::consultar("SELECT * FROM venta WHERE Cedula='$Cedclien' ORDER BY NumPedido desc limit 1");
