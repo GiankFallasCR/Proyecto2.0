@@ -5,7 +5,7 @@
 <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
             <div class="col-xs-4">
-                <p class="text-navbar tittles-pages-logo">STORE</p>
+                <p class="text-navbar tittles-pages-logo">ViajiTico</p>
             </div>
             <div class="col-xs-8">
               <div class="contenedor-tabla pull-right">
