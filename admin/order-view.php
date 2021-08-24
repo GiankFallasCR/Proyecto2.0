@@ -47,7 +47,7 @@
                             <td class="text-center"><?php echo $order['Fecha']; ?></td>
                             <td>
                                 <?php 
-                                    $conUs= ejecutarSQL::consultar("SELECT Nombre FROM cliente WHERE NIT='".$order['NIT']."'");
+                                    $conUs= ejecutarSQL::consultar("SELECT Nombre FROM cliente WHERE Cedula='".$order['Cedula']."'");
                                     $UsP=mysqli_fetch_array($conUs, MYSQLI_ASSOC);
                                     echo $UsP['Nombre'];
                                 ?>

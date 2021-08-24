@@ -12,7 +12,7 @@ $comprobanteSize=$_FILES['comprobante']['size'];
 $comprobanteMaxSize=5120;
 $comprobanteDir="../assets/comprobantes/";
 
-$verdata=  ejecutarSQL::consultar("SELECT * FROM cliente WHERE NIT='".$Cedclien."'");
+$verdata=  ejecutarSQL::consultar("SELECT * FROM cliente WHERE Cedula='".$Cedclien."'");
 if(mysqli_num_rows($verdata)>=1){
   if(!empty($comprobanteType)){
     if($comprobanteType=="image/jpeg" || $comprobanteType=="image/png"){
@@ -56,10 +56,10 @@ if(mysqli_num_rows($verdata)>=1){
         }
         mysqli_free_result($consulta);
     }
-    if(consultasSQL::InsertSQL("venta", "Fecha, NIT, TotalPagar, Estado, NumeroDeposito, TipoEnvio, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$tipoenvio','$comprobanteF'")){
+    if(consultasSQL::InsertSQL("venta", "Fecha, Cedula, TotalPagar, Estado, NumeroDeposito, TipoEnvio, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$tipoenvio','$comprobanteF'")){
 
       /*recuperando el número del pedido actual*/
-      $verId=ejecutarSQL::consultar("SELECT * FROM venta WHERE NIT='$Cedclien' ORDER BY NumPedido desc limit 1");
+      $verId=ejecutarSQL::consultar("SELECT * FROM venta WHERE Cedula='$Cedclien' ORDER BY NumPedido desc limit 1");
       $fila=mysqli_fetch_array($verId, MYSQLI_ASSOC);
       $Numpedido=$fila['NumPedido'];
 

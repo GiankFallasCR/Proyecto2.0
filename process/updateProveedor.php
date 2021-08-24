@@ -2,13 +2,13 @@
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 
-$nitOldProveUp=consultasSQL::clean_string($_POST['nit-prove-old']);
+$CedulaOldProveUp=consultasSQL::clean_string($_POST['Cedula-prove-old']);
 $nameProveUp=consultasSQL::clean_string($_POST['prove-name']);
 $dirProveUp=consultasSQL::clean_string($_POST['prove-dir']);
 $telProveUp=consultasSQL::clean_string($_POST['prove-tel']);
 $webProveUp=consultasSQL::clean_string($_POST['prove-web']);
 
-if(consultasSQL::UpdateSQL("proveedor", "NombreProveedor='$nameProveUp',Direccion='$dirProveUp',Telefono='$telProveUp',PaginaWeb='$webProveUp'", "NITProveedor='$nitOldProveUp'")){
+if(consultasSQL::UpdateSQL("proveedor", "NombreProveedor='$nameProveUp',Direccion='$dirProveUp',Telefono='$telProveUp',PaginaWeb='$webProveUp'", "CedulaProveedor='$CedulaOldProveUp'")){
     echo '<script>
         swal({
           title: "Proveedor actualizado",

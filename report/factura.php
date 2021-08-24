@@ -6,7 +6,7 @@ include '../library/consulSQL.php';
 $id=$_GET['id'];
 $sVenta=ejecutarSQL::consultar("SELECT * FROM venta WHERE NumPedido='$id'");
 $dVenta=mysqli_fetch_array($sVenta, MYSQLI_ASSOC);
-$sCliente=ejecutarSQL::consultar("SELECT * FROM cliente WHERE NIT='".$dVenta['NIT']."'");
+$sCliente=ejecutarSQL::consultar("SELECT * FROM cliente WHERE Cedula='".$dVenta['Cedula']."'");
 $dCliente=mysqli_fetch_array($sCliente, MYSQLI_ASSOC);
 class PDF extends FPDF{
 }
@@ -34,7 +34,7 @@ $pdf->Ln(12);
 $pdf->SetFont("Times","b",12);
 $pdf->Cell (30,5,utf8_decode('DNI/CÉDULA: '),0);
 $pdf->SetFont("Times","",12);
-$pdf->Cell (25,5,utf8_decode($dCliente['NIT']),0);
+$pdf->Cell (25,5,utf8_decode($dCliente['Cedula']),0);
 $pdf->Ln(12);
 $pdf->SetFont("Times","b",12);
 $pdf->Cell (20,5,utf8_decode('Direccion: '),0);

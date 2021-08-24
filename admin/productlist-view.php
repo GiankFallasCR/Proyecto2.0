@@ -71,7 +71,7 @@
                         	<td class="text-center"><?php echo $prod['cantidad']; ?></td>
                         	<td class="text-center">
                         		<?php
-                        			$prov=ejecutarSQL::consultar("SELECT NombreProveedor FROM proveedor WHERE NITProveedor='".$prod['NITProveedor']."'");
+                        			$prov=ejecutarSQL::consultar("SELECT NombreProveedor FROM proveedor WHERE CedulaProveedor='".$prod['CedulaProveedor']."'");
                         			$datp=mysqli_fetch_array($prov, MYSQLI_ASSOC);
                         			echo $datp['NombreProveedor'];
                         		?>

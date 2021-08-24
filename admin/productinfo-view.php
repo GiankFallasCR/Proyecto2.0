@@ -97,10 +97,10 @@
                                     <?php
                                         $proveedor=ejecutarSQL::consultar("SELECT * FROM proveedor");
                                         while($prov=mysqli_fetch_array($proveedor, MYSQLI_ASSOC)){
-                                        	if($prod['NITProveedor']==$prov['NITProveedor']){
-                                        		echo '<option selected="" value="'.$prov['NITProveedor'].'">'.$prov['NombreProveedor'].' (Actual)</option>';
+                                        	if($prod['CedulaProveedor']==$prov['CedulaProveedor']){
+                                        		echo '<option selected="" value="'.$prov['CedulaProveedor'].'">'.$prov['NombreProveedor'].' (Actual)</option>';
                                         	}else{
-                                            	echo '<option value="'.$prov['NITProveedor'].'">'.$prov['NombreProveedor'].'</option>';	
+                                            	echo '<option value="'.$prov['CedulaProveedor'].'">'.$prov['NombreProveedor'].'</option>';	
                                         	}
                                         }
                                     ?>

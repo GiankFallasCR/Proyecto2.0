@@ -3,10 +3,10 @@ session_start();
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 
-$nitProve=consultasSQL::clean_string($_POST['nit-prove']);
-$cons=ejecutarSQL::consultar("SELECT * FROM producto WHERE NITProveedor='$nitProve'");
+$CedulaProve=consultasSQL::clean_string($_POST['Cedula-prove']);
+$cons=ejecutarSQL::consultar("SELECT * FROM producto WHERE CedulaProveedor='$CedulaProve'");
 if(mysqli_num_rows($cons)<=0){
-    if(consultasSQL::DeleteSQL('proveedor', "NITProveedor='".$nitProve."'")){
+    if(consultasSQL::DeleteSQL('proveedor', "CedulaProveedor='".$CedulaProve."'")){
         echo '<script>
 		    swal({
 		      title: "Proveedor eliminado",

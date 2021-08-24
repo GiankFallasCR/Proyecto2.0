@@ -87,7 +87,7 @@
                                     <?php
                                         $proveedoresc=  ejecutarSQL::consultar("SELECT * FROM proveedor");
                                         while($provc=mysqli_fetch_array($proveedoresc, MYSQLI_ASSOC)){
-                                            echo '<option value="'.$provc['NITProveedor'].'">'.$provc['NombreProveedor'].'</option>';
+                                            echo '<option value="'.$provc['CedulaProveedor'].'">'.$provc['NombreProveedor'].'</option>';
                                         }
                                     ?>
                                 </select>

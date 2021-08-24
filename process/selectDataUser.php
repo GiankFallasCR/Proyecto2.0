@@ -5,7 +5,7 @@
 
 	$code=consultasSQL::clean_string($_POST['code']);
 
-	$SelectUser=ejecutarSQL::consultar("SELECT * FROM cliente WHERE NIT='".$code."'");
+	$SelectUser=ejecutarSQL::consultar("SELECT * FROM cliente WHERE Cedula='".$code."'");
 	if(mysqli_num_rows($SelectUser)==1){
 		$DataUser=mysqli_fetch_array($SelectUser, MYSQLI_ASSOC);
 		echo '
@@ -17,7 +17,7 @@
                   <div class="col-xs-12">
                     <div class="form-group label-floating">
                       <label class="control-label"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp; DNI</label>
-                      <input class="form-control" type="text" required readonly name="clien-nit" value="'.$DataUser['NIT'].'">
+                      <input class="form-control" type="text" required readonly name="clien-Cedula" value="'.$DataUser['Cedula'].'">
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6">

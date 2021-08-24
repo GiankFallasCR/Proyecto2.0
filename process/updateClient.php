@@ -3,7 +3,7 @@
 	include '../library/configServer.php';
 	include '../library/consulSQL.php';
 
-	$NIT=consultasSQL::clean_string($_POST['clien-nit']);
+	$Cedula=consultasSQL::clean_string($_POST['clien-Cedula']);
 	$Nombre=consultasSQL::clean_string($_POST['clien-fullname']);
 	$Apellido=consultasSQL::clean_string($_POST['clien-lastname']);
 	$Telefono=consultasSQL::clean_string($_POST['clien-phone']);
@@ -45,7 +45,7 @@
 		$campos="Nombre='$user',NombreCompleto='$Nombre',Apellido='$Apellido',Direccion='$Direccion',Telefono='$Telefono',Email='$Email'";
 	}
 
-	if(consultasSQL::UpdateSQL("cliente", $campos, "NIT='$NIT'")){
+	if(consultasSQL::UpdateSQL("cliente", $campos, "Cedula='$Cedula'")){
 		$_SESSION['nombreUser']=$user;
 		echo '<script>
 		  swal({

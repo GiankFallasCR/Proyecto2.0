@@ -21,8 +21,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">NIT/CEDULA</label>
-                                    <input class="form-control" type="text" name="prove-nit" pattern="[0-9]{1,20}" maxlength="20" required="">
+                                    <label class="control-label">Cedula/CEDULA</label>
+                                    <input class="form-control" type="text" name="prove-Cedula" pattern="[0-9]{1,20}" maxlength="20" required="">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">

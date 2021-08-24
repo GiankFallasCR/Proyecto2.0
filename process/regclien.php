@@ -2,7 +2,7 @@
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 
-$nitCliente=consultasSQL::clean_string($_POST['clien-nit']);
+$CedulaCliente=consultasSQL::clean_string($_POST['clien-Cedula']);
 $nameCliente=consultasSQL::clean_string($_POST['clien-name']);
 $fullnameCliente=consultasSQL::clean_string($_POST['clien-fullname']);
 $apeCliente=consultasSQL::clean_string($_POST['clien-lastname']);
@@ -12,12 +12,12 @@ $dirCliente=consultasSQL::clean_string($_POST['clien-dir']);
 $phoneCliente=consultasSQL::clean_string($_POST['clien-phone']);
 $emailCliente=consultasSQL::clean_string($_POST['clien-email']);
 
-if(!$nitCliente=="" && !$nameCliente=="" && !$apeCliente=="" && !$dirCliente=="" && !$phoneCliente=="" && !$emailCliente=="" && !$fullnameCliente==""){
+if(!$CedulaCliente=="" && !$nameCliente=="" && !$apeCliente=="" && !$dirCliente=="" && !$phoneCliente=="" && !$emailCliente=="" && !$fullnameCliente==""){
     if($passCliente==$passCliente2){
-        $verificar= ejecutarSQL::consultar("SELECT * FROM cliente WHERE NIT='".$nitCliente."'");
+        $verificar= ejecutarSQL::consultar("SELECT * FROM cliente WHERE Cedula='".$CedulaCliente."'");
         $verificaltotal = mysqli_num_rows($verificar);
         if($verificaltotal<=0){
-            if(consultasSQL::InsertSQL("cliente", "NIT, Nombre, NombreCompleto, Apellido, Direccion, Clave, Telefono, Email", "'$nitCliente','$nameCliente','$fullnameCliente','$apeCliente','$dirCliente', '$passCliente','$phoneCliente','$emailCliente'")){
+            if(consultasSQL::InsertSQL("cliente", "Cedula, Nombre, NombreCompleto, Apellido, Direccion, Clave, Telefono, Email", "'$CedulaCliente','$nameCliente','$fullnameCliente','$apeCliente','$dirCliente', '$passCliente','$phoneCliente','$emailCliente'")){
                 echo '<script>
                     swal({
                       title: "Registro completado",

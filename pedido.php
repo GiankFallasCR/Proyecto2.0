@@ -45,7 +45,7 @@
         </div>
         <?php
             if($_SESSION['UserType']=="User"){
-                $consultaC=ejecutarSQL::consultar("SELECT * FROM venta WHERE NIT='".$_SESSION['UserNIT']."'");
+                $consultaC=ejecutarSQL::consultar("SELECT * FROM venta WHERE Cedula='".$_SESSION['UserCedula']."'");
         ?>
             <div class="container" style="margin-top: 70px;">
               <div class="page-header">
@@ -173,7 +173,7 @@
                           <option value="Envio Por Currier">Envio Gratis</option> 
                       </select>
                    </div>
-                    <input type="hidden" name="Cedclien" value="<?php echo $_SESSION['UserNIT']; ?>">
+                    <input type="hidden" name="Cedclien" value="<?php echo $_SESSION['UserCedula']; ?>">
                     <div class="form-group">
                       <input type="file" name="comprobante">
                       <div class="input-group">

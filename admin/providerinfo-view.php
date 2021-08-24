@@ -18,17 +18,17 @@
                 <h3 class="text-primary text-center">Actualizar datos del proveedor</h3>
                 <?php
                     $code=$_GET['code'];
-                    $proveedor=ejecutarSQL::consultar("SELECT * FROM proveedor WHERE NITProveedor='$code'");
+                    $proveedor=ejecutarSQL::consultar("SELECT * FROM proveedor WHERE CedulaProveedor='$code'");
                     $prov=mysqli_fetch_array($proveedor, MYSQLI_ASSOC);
                 ?>
                 <form action="process/updateProveedor.php" method="POST" class="FormCatElec" data-form="update">
-                    <input type="hidden" name="nit-prove-old" value="<?php echo $prov['NITProveedor']; ?>">
+                    <input type="hidden" name="Cedula-prove-old" value="<?php echo $prov['CedulaProveedor']; ?>">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">NIT/CEDULA</label>
-                                    <input class="form-control" value="<?php echo $prov['NITProveedor']; ?>" type="text" name="prove-nit" readonly pattern="[0-9]{1,20}" maxlength="20" required="">
+                                    <label class="control-label">Cedula/CEDULA</label>
+                                    <input class="form-control" value="<?php echo $prov['CedulaProveedor']; ?>" type="text" name="prove-Cedula" readonly pattern="[0-9]{1,20}" maxlength="20" required="">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
