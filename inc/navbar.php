@@ -29,7 +29,7 @@
                               <a href="#!" class="table-cell-td exit-system">
                               <i class="fa fa-user"></i>&nbsp;&nbsp;'.$_SESSION['nombreUser'].'
                               </a>
-                              <a href="#!" class="table-cell-td userConBtn" data-code="'.$_SESSION['UserNIT'].'">
+                              <a href="#!" class="table-cell-td userConBtn" data-code="'.$_SESSION['UserCedula'].'">
                                 <i class="glyphicon glyphicon-cog"></i>
                               </a>
                            ';
@@ -140,7 +140,7 @@
                 }elseif(!$_SESSION['nombreUser']==""){
                     echo '
                     <li><a href="pedido.php">Pedido</a></li>
-                    <li><a href="#" class="glyphicon glyphicon-cog userConBtn" data-code="'.$_SESSION['UserNIT'].'"> Configuraciones</a></li>
+                    <li><a href="#" class="glyphicon glyphicon-cog userConBtn" data-code="'.$_SESSION['UserCedula'].'"> Configuraciones</a></li>
                     ';
                 }else{
                     echo '<li><a href="registration.php">Registro</a></li>';

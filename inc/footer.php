@@ -24,8 +24,8 @@
             <div class="col-sm-4">
                 <h4 class="text-footer">Porque elegirnos</h4>
                 <p> 
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
-                    Lorem ipsum dolor sit amet,adipisicing elit.</br>
+                    Digales!</br>
+                    Pura vida</br>
                     Lorem ipsum dolor sit amet,adipisicing elit.</br>
                     Lorem ipsum dolor sit amet,adipisicing elit.</br>
                 </p>
