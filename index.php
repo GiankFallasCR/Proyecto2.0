@@ -11,14 +11,6 @@
     
     <section id="slider-store" class="carousel slide" data-ride="carousel" style="padding: 0;">
 
-        <!-- Indicators 
-        <ol class="carousel-indicators">
-            <li data-target="#slider-store" data-slide-to="0" class="active"></li>
-            <li data-target="#slider-store" data-slide-to="1"></li>
-            <li data-target="#slider-store" data-slide-to="2"></li>
-        </ol>
-        -->
-        <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
 
             <div class="item active">
