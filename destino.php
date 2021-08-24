@@ -10,11 +10,11 @@ include './library/consulSQL.php';
 </head>
 <body id="container-page-product">
     <?php include './inc/navbar.php'; ?>
-    <section id="store">
+    <section id="Viejitico">
        <br>
         <div class="container">
             <div class="page-header">
-              <h1>PRODUCTOS <small class="tittles-pages-logo">STORE</small></h1>
+              <h1>PRODUCTOS <small class="tittles-pages-logo">Viejitico</small></h1>
             </div>
             <?php
               $checkAllCat=ejecutarSQL::consultar("SELECT * FROM categoria");
