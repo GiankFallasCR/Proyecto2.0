@@ -5,7 +5,6 @@
 
     $codeProd=consultasSQL::clean_string($_POST['prod-codigo']);
     $nameProd=consultasSQL::clean_string($_POST['prod-name']);
-    $cateProd=consultasSQL::clean_string($_POST['prod-categoria']);
     $priceProd=consultasSQL::clean_string($_POST['prod-price']);
     $modelProd=consultasSQL::clean_string($_POST['prod-model']);
     $ProvinciaProd=consultasSQL::clean_string($_POST['prod-Provincia']);
