@@ -45,7 +45,7 @@ include './library/consulSQL.php';
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                          <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del producto">
+                          <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del destino">
                           <span class="input-group-btn">
                               <button class="btn btn-info btn-raised" type="submit">Buscar</button>
                           </span>
@@ -68,7 +68,7 @@ include './library/consulSQL.php';
                   $regpagina = 20;
                   $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                  $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE CodigoCat='$categoria' AND cantidad > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
+                  $consultar_destinos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM destino WHERE CodigoCat='$categoria' AND cantidad > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
 
                   $selCat=ejecutarSQL::consultar("SELECT * FROM categoria WHERE CodigoCat='$categoria'");
                   $datCat=mysqli_fetch_array($selCat, MYSQLI_ASSOC);
@@ -78,9 +78,9 @@ include './library/consulSQL.php';
         
                   $numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
-                  if(mysqli_num_rows($consultar_productos)>=1){
-                    echo '<h3 class="text-center">Se muestran los productos de la categoría <strong>"'.$datCat['Nombre'].'"</strong></h3><br>';
-                    while($prod=mysqli_fetch_array($consultar_productos, MYSQLI_ASSOC)){
+                  if(mysqli_num_rows($consultar_destinos)>=1){
+                    echo '<h3 class="text-center">Se muestran los destinos de la categoría <strong>"'.$datCat['Nombre'].'"</strong></h3><br>';
+                    while($prod=mysqli_fetch_array($consultar_destinos, MYSQLI_ASSOC)){
                 ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                          <div class="thumbnail">
@@ -157,7 +157,7 @@ include './library/consulSQL.php';
                 <?php
                   endif;
                   }else{
-                    echo '<h2 class="text-center">Lo sentimos, no hay productos registrados en la categoría <strong>"'.$datCat['Nombre'].'"</strong></h2>';
+                    echo '<h2 class="text-center">Lo sentimos, no hay destinos registrados en la categoría <strong>"'.$datCat['Nombre'].'"</strong></h2>';
                   }
                 ?>
               </div>
@@ -166,7 +166,7 @@ include './library/consulSQL.php';
                   echo '<h2 class="text-center">Por favor seleccione una categoría para empezar</h2>';
                 }
               else:
-                echo '<h2 class="text-center">Lo sentimos, no hay productos ni categorías registradas en la tienda</h2>';
+                echo '<h2 class="text-center">Lo sentimos, no hay destinos ni categorías registradas en la tienda</h2>';
               endif;
             ?>
         </div>
