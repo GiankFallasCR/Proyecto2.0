@@ -51,7 +51,51 @@
         </a>
     </section>
     
-
+    <section id="new-prod-index">    
+         <div class="container">
+            <div class="page-header">
+                <h1>Últimos <small>detinos agregados</small></h1>
+            </div>
+            <div class="row">
+              	<?php
+                  include 'library/configServer.php';
+                  include 'library/consulSQL.php';
+                  $consulta= ejecutarSQL::consultar("SELECT * FROM destino WHERE Cantidad > 0 AND Estado='Activo' ORDER BY id DESC");
+                  $totalDestinos = mysqli_num_rows($consulta);
+                  if($totalDestinos>0){
+                      while($fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC)){
+                ?>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                     <div class="thumbnail">
+                       <img class="img-destino" src="assets/img-destinos/<?php if($fila['Imagen']!="" && is_file("./assets/img-destinos/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">
+                       <div class="caption">
+                       		<h3><?php echo $fila['Marca']; ?></h3>
+                            <p><?php echo $fila['NombreDestino']; ?></p>
+                            <?php if($fila['Descuento']>0): ?>
+                             <p>
+                             <?php
+                             $pref=number_format($fila['Precio']-($fila['Precio']*($fila['Descuento']/100)), 2, '.', '');
+                             echo $fila['Descuento']."% descuento: $".$pref; 
+                             ?>
+                             </p>
+                             <?php else: ?>
+                              <p>$<?php echo $fila['Precio']; ?></p>
+                             <?php endif; ?>
+                        <p class="text-center">
+                            <a href="infoDestino.php?CodigoDestino=<?php echo $fila['CodigoDestino']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                        </p>
+                       </div>
+                     </div>
+                </div>     
+                <?php
+                     }   
+                  }else{
+                      echo '<h2>No hay Destinos registrados</h2>';
+                  }  
+              	?>  
+            </div>
+         </div>
+    </section>
     
     <section id="reg-info-index">
         <div class="container">
