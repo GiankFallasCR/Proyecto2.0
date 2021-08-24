@@ -67,7 +67,7 @@ include './library/consulSQL.php';
                                <p><?php echo $prod['NombreDestino']; ?></p>
                                <p>$<?php echo $prod['Precio']; ?></p>
                                <p class="text-center">
-                                   <a href="infoProd.php?CodigoDestino=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                                   <a href="infoDestino.php?CodigoDestino=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                                </p>
 
                              </div>
