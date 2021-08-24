@@ -40,16 +40,16 @@ if($imgName!=""){
         exit();
     }
   }else{
-    echo '<script>swal("ERROR", "El formato de la imagen del producto es invalido, solo se admiten archivos con la extensión .jpg y .png ", "error");</script>';
+    echo '<script>swal("ERROR", "El formato de la imagen del destino es invalido, solo se admiten archivos con la extensión .jpg y .png ", "error");</script>';
     exit();
   }
 }
 
-if(consultasSQL::UpdateSQL("producto", "NombreDestino='$nameProdUp',CodigoCat='$catProdUp',Precio='$priceProdUp',Descuento='$descProdUp',Canton='$modelProdUp',Provincia='$ProvinciaProdUp',cantidad='$cantidadProdUp',CedulaProveedor='$proveProdUp',Estado='$EstadoProdUp'", "CodigoDestino='$codeOldProdUp'")){
+if(consultasSQL::UpdateSQL("destino", "NombreDestino='$nameProdUp',CodigoCat='$catProdUp',Precio='$priceProdUp',Descuento='$descProdUp',Canton='$modelProdUp',Provincia='$ProvinciaProdUp',cantidad='$cantidadProdUp',CedulaProveedor='$proveProdUp',Estado='$EstadoProdUp'", "CodigoDestino='$codeOldProdUp'")){
    echo '<script>
     swal({
-      title: "Producto actualizado",
-      text: "El producto se actualizo con éxito",
+      title: "destino actualizado",
+      text: "El destino se actualizo con éxito",
       type: "success",
       showCancelButton: true,
       confirmButtonClass: "btn-danger",

@@ -22,7 +22,7 @@
                             $sumaA = 0;
                             echo '<table class="table table-bordered table-hover"><thead><tr class="bg-success"><th>Nombre</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th>Acciones</th></tr></thead>';
                             foreach($_SESSION['carro'] as $codeProd){
-                                $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$codeProd['producto']."'");
+                                $consulta=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$codeProd['destino']."'");
                                 while($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
                                     $pref=number_format(($fila['Precio']-($fila['Precio']*($fila['Descuento']/100))), 2, '.', '');
                                         echo "<tbody>
@@ -33,7 +33,7 @@
                                                 <td> ".$pref*$codeProd['cantidad']."</td>
                                                 <td>
                                                     <form action='process/quitarproducto.php' method='POST' class='FormCatElec' data-form=''>
-                                                        <input type='hidden' value='".$codeProd['producto']."' name='codigo'>
+                                                        <input type='hidden' value='".$codeProd['destino']."' name='codigo'>
                                                         <button class='btn btn-danger btn-raised btn-xs'>Eliminar</button>
                                                     </form>
                                                 </td>
@@ -54,7 +54,7 @@
                             ';
                         }else{
                             echo '<p class="text-center text-danger lead">El carrito de compras esta vacío</p><br>
-                            <a href="product.php" class="btn btn-primary btn-lg btn-raised">Ir a Productos</a>';
+                            <a href="product.php" class="btn btn-primary btn-lg btn-raised">Ir a destinos</a>';
                                                         
                         }  
                     ?>

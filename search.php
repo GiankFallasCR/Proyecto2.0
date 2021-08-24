@@ -5,7 +5,7 @@ include './library/consulSQL.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Productos</title>
+    <title>destinos</title>
     <?php include './inc/link.php'; ?>
 </head>
 <body id="container-page-product">
@@ -14,7 +14,7 @@ include './library/consulSQL.php';
        <br>
         <div class="container">
             <div class="page-header">
-              <h1>BÚSQUEDA DE PRODUCTOS <small class="tittles-pages-logo">STORE</small></h1>
+              <h1>BÚSQUEDA DE destinoS <small class="tittles-pages-logo">STORE</small></h1>
             </div>
             <div class="container-fluid">
               <div class="row">
@@ -23,7 +23,7 @@ include './library/consulSQL.php';
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                        <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del producto">
+                        <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del destino">
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-raised" type="submit">Buscar</button>
                         </span>
@@ -47,16 +47,16 @@ include './library/consulSQL.php';
                     $regpagina = 20;
                     $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                    $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE NombreDestino LIKE '%".$search."%' OR Canton LIKE '%".$search."%' OR Provincia LIKE '%".$search."%' LIMIT $inicio, $regpagina");
+                    $consultar_destinos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM destino WHERE NombreDestino LIKE '%".$search."%' OR Canton LIKE '%".$search."%' OR Provincia LIKE '%".$search."%' LIMIT $inicio, $regpagina");
 
                     $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                     $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
           
                     $numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
-                    if(mysqli_num_rows($consultar_productos)>=1){
-                      echo '<div class="col-xs-12"><h3 class="text-center">Se muestran los productos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h3></div><br>';
-                      while($prod=mysqli_fetch_array($consultar_productos, MYSQLI_ASSOC)){
+                    if(mysqli_num_rows($consultar_destinos)>=1){
+                      echo '<div class="col-xs-12"><h3 class="text-center">Se muestran los destinos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h3></div><br>';
+                      while($prod=mysqli_fetch_array($consultar_destinos, MYSQLI_ASSOC)){
                   ?>
                       <div class="col-xs-12 col-sm-6 col-md-4">
                            <div class="thumbnail">
@@ -124,14 +124,14 @@ include './library/consulSQL.php';
                   <?php
                     endif;
                     }else{
-                      echo '<h2 class="text-center">Lo sentimos, no hemos encontrado productos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h2>';
+                      echo '<h2 class="text-center">Lo sentimos, no hemos encontrado destinos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h2>';
                     }
                   ?>
                 </div>
               </div>
             <?php
               }else{
-                  echo '<h2 class="text-center">Por favor escriba el nombre o Provincia del producto que desea buscar</h2>';
+                  echo '<h2 class="text-center">Por favor escriba el nombre o Provincia del destino que desea buscar</h2>';
               }
             ?>
         </div>

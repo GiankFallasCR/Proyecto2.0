@@ -49,7 +49,7 @@ if(mysqli_num_rows($verdata)>=1){
     $StatusV="Pendiente";
     $suma = 0;
     foreach($_SESSION['carro'] as $codess){
-        $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$codess['producto']."'");
+        $consulta=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$codess['destino']."'");
         while($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
           $tp=number_format($fila['Precio']-($fila['Precio']*($fila['Descuento']/100)), 2, '.', '');
           $suma += $tp*$codess['cantidad'];
@@ -65,18 +65,18 @@ if(mysqli_num_rows($verdata)>=1){
 
       /*Insertando datos en detalle de la venta*/
       foreach($_SESSION['carro'] as $carro){
-      		$preP=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$carro['producto']."'");
+      		$preP=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$carro['destino']."'");
       		$filaP=mysqli_fetch_array($preP, MYSQLI_ASSOC);
           $pref=number_format($filaP['Precio']-($filaP['Precio']*($filaP['Descuento']/100)), 2, '.', '');
-          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoDestino, CantidadProductos, PrecioProd", "'$Numpedido', '".$carro['producto']."', '".$carro['cantidad']."', '$pref'");
+          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoDestino, Cantidaddestinos, PrecioProd", "'$Numpedido', '".$carro['destino']."', '".$carro['cantidad']."', '$pref'");
           	mysqli_free_result($preP);
 
-        /*Restando cantidad a cada producto seleccionado en el carrito*/
-        $prodcantidad=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$carro['producto']."'");
+        /*Restando cantidad a cada destino seleccionado en el carrito*/
+        $prodcantidad=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$carro['destino']."'");
         while($fila = mysqli_fetch_array($prodcantidad, MYSQLI_ASSOC)) {
             $existencias = $fila['cantidad'];
             $existenciasRest=$carro['cantidad'];
-            consultasSQL::UpdateSQL("producto", "cantidad=('$existencias'-'$existenciasRest')", "CodigoDestino='".$carro['producto']."'");
+            consultasSQL::UpdateSQL("destino", "cantidad=('$existencias'-'$existenciasRest')", "CodigoDestino='".$carro['destino']."'");
         }
       }
       
@@ -107,7 +107,7 @@ if(mysqli_num_rows($verdata)>=1){
       echo '<script>swal("ERROR", "Ha ocurrido un error inesperado", "error");</script>';
     }
   }else{
-    echo '<script>swal("ERROR", "No has seleccionado ningún producto, revisa el carrito de compras", "error");</script>';
+    echo '<script>swal("ERROR", "No has seleccionado ningún destino, revisa el carrito de compras", "error");</script>';
   }
 }else{
     echo '<script>swal("ERROR", "El DNI es incorrecto, no esta registrado con ningun cliente", "error");</script>';

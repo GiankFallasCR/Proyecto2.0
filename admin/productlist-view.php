@@ -4,11 +4,11 @@
 <ul class="breadcrumb" style="margin-bottom: 5px;">
     <li>
         <a href="configAdmin.php?view=product">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Nuevo producto
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Nuevo destino
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=productlist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Productos en tienda</a>
+        <a href="configAdmin.php?view=productlist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
     </li>
 </ul>
 <div class="container">
@@ -16,7 +16,7 @@
 		<div class="col-xs-12">
             <br><br>
             <div class="panel panel-info">
-              <div class="panel-heading text-center"><h4>Productos en tienda</h4></div>
+              <div class="panel-heading text-center"><h4>destinos en tienda</h4></div>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover">
                       <thead class="">
@@ -44,7 +44,7 @@
 							$regpagina = 30;
 							$inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-							$productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto LIMIT $inicio, $regpagina");
+							$destinos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM destino LIMIT $inicio, $regpagina");
 
 							$totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
 							$totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
@@ -52,7 +52,7 @@
 							$numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
 							$cr=$inicio+1;
-                            while($prod=mysqli_fetch_array($productos, MYSQLI_ASSOC)){
+                            while($prod=mysqli_fetch_array($destinos, MYSQLI_ASSOC)){
                         ?>
                         <tr>
                         	<td class="text-center"><?php echo $cr; ?></td>

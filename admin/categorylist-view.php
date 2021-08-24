@@ -8,7 +8,7 @@
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=categorylist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Categoría de productos</a>
+        <a href="configAdmin.php?view=categorylist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Categoría de destinos</a>
     </li>
 </ul>
 <div class="container">
@@ -16,7 +16,7 @@
         <div class="col-xs-12">
             <br><br>
             <div class="panel panel-info">
-                <div class="panel-heading text-center"><h4>Categorías de productos</h4></div>
+                <div class="panel-heading text-center"><h4>Categorías de destinos</h4></div>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="">

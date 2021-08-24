@@ -60,14 +60,14 @@ $pdf->SetFont("Times","",12);
 $suma=0;
 $sDet=ejecutarSQL::consultar("SELECT * FROM detalle WHERE NumPedido='".$id."'");
 while($fila1 = mysqli_fetch_array($sDet, MYSQLI_ASSOC)){
-    $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$fila1['CodigoDestino']."'");
+    $consulta=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$fila1['CodigoDestino']."'");
     $fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
     $pdf->Cell (76,10,utf8_decode($fila['NombreDestino']),1,0,'C');
     $pdf->Cell (30,10,utf8_decode('$'.$fila1['PrecioProd']),1,0,'C');
-    $pdf->Cell (30,10,utf8_decode($fila1['CantidadProductos']),1,0,'C');
-    $pdf->Cell (30,10,utf8_decode('$'.$fila1['PrecioProd']*$fila1['CantidadProductos']),1,0,'C');
+    $pdf->Cell (30,10,utf8_decode($fila1['Cantidaddestinos']),1,0,'C');
+    $pdf->Cell (30,10,utf8_decode('$'.$fila1['PrecioProd']*$fila1['Cantidaddestinos']),1,0,'C');
     $pdf->Ln(10);
-    $suma += $fila1['PrecioProd']*$fila1['CantidadProductos'];
+    $suma += $fila1['PrecioProd']*$fila1['Cantidaddestinos'];
     mysqli_free_result($consulta);
 }
 $pdf->SetFont("Times","b",12);
