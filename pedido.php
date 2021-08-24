@@ -9,7 +9,7 @@
     <section id="container-pedido">
         <div class="container">
             <div class="page-header">
-              <h1>PEDIDOS <small class="tittles-pages-logo">STORE</small></h1>
+              <h1>PEDIDOS <small class="tittles-pages-logo">ViajiTico</small></h1>
             </div>
             <br><br><br>
             <div class="row">
@@ -126,9 +126,9 @@
             ?>
             <p>Por favor haga el deposito en la siguiente cuenta de banco e ingrese el numero de deposito que se le proporciono.</p><br>
             <p>
-              <strong>Nombre del banco:</strong> <?php echo $datBank['NombreBanco']; ?><br>
-              <strong>Numero de cuenta:</strong> <?php echo $datBank['NumeroCuenta']; ?><br>
-              <strong>Nombre del beneficiario:</strong> <?php echo $datBank['NombreBeneficiario']; ?><br>
+              <strong>Nombre del banco:</strong> <?php echo $datBank['NombreBanco']; ?><br></br>
+              <strong>Numero de cuenta:</strong> <?php echo $datBank['NumeroCuenta']; ?><br></br>
+              <strong>Nombre del beneficiario:</strong> <?php echo $datBank['NombreBeneficiario']; ?><br></br>
               <strong>Tipo de cuenta:</strong> <?php echo $datBank['TipoCuenta']; ?><br><br>
             </p>
                 <?php if($_SESSION['UserType']=="Admin"): ?>
@@ -137,16 +137,8 @@
                     <input class="form-control" type="text" name="NumDepo" placeholder="Numero de deposito" maxlength="50" required="">
                 </div>
                 <div class="form-group">
-                  <span>Tipo De Envio</span>
-                  <select class="form-control" name="tipo-envio" data-toggle="tooltip" data-placement="top" title="Elige El Tipo De Envio">
-                      <option value="" disabled="" selected="">Selecciona una opción</option>
-                      <option value="Recoger Por Tienda">Recoger Por Tienda</option>
-                      <option value="Envio Por Currier">Envio Gratis</option> 
-                  </select>
-               </div>
-                <div class="form-group">
-                    <label>DNI del cliente</label>
-                    <input class="form-control" type="text" name="Cedclien" placeholder="DNI del cliente" maxlength="15" required="">
+                    <label>Cedula del cliente</label>
+                    <input class="form-control" type="text" name="Cedclien" placeholder="Cedula del cliente" maxlength="15" required="">
                 </div>
                 <div class="form-group">
                       <input type="file" name="comprobante">
