@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./css/sweetalert.css">
 <link rel="stylesheet" href="./css/media.css">
 <link rel="stylesheet" href="./css/style.css">
+<script src="./js/main.js"></script>
 <script src="./js/jquery.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/material.min.js"></script>
@@ -15,7 +16,7 @@
 <script src="./js/autohidingnavbar.min.js"></script>
 <script src="./js/sweetalert.min.js"></script>
 <script src="./js/jquery.dataTables.min.js"></script>
-<script src="./js/main.js"></script>
+
 <script>
 	$(document).ready(function(){
 		$.material.init();
