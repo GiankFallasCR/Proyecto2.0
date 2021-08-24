@@ -16,30 +16,9 @@ include './library/consulSQL.php';
             <div class="page-header">
               <h1>Destinos <small class="tittles-pages-logo">Viajitico</small></h1>
             </div>
-            <?php
-              $checkAllCat=ejecutarSQL::consultar("SELECT * FROM categoria");
-              if(mysqli_num_rows($checkAllCat)>=1):
-            ?>
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-xs-12 col-md-4">
-                    <div class="dropdown">
-                      <button class="btn btn-primary btn-raised dropdown-toggle" type="button" id="drpdowncategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Seleccione una categoría &nbsp;
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="drpdowncategory">
-                        <?php 
-                          while($cate=mysqli_fetch_array($checkAllCat, MYSQLI_ASSOC)){
-                              echo '
-                                <li><a href="destino.php?categ='.$cate['CodigoCat'].'">'.$cate['Nombre'].'</a></li>
-                                <li role="separator" class="divider"></li>
-                              ';
-                          }
-                        ?>
-                      </ul>
-                    </div>
-                  </div>
+                  
                   <div class="col-xs-12 col-md-4 col-md-offset-4">
                     <form action="./search.php" method="GET">
                       <div class="form-group">
@@ -55,10 +34,7 @@ include './library/consulSQL.php';
                   </div>
                 </div>
               </div>
-            <?php
-                $categoria=consultasSQL::clean_string($_GET['categ']);
-                if(isset($categoria) && $categoria!=""){
-            ?>
+
               <div class="row">
                 <?php
                   $mysqli = mysqli_connect(SERVER, USER, PASS, BD);
@@ -68,48 +44,39 @@ include './library/consulSQL.php';
                   $regpagina = 20;
                   $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                  $consultar_destinos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM destino WHERE CodigoCat='$categoria' AND cantidad > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
-
-                  $selCat=ejecutarSQL::consultar("SELECT * FROM categoria WHERE CodigoCat='$categoria'");
-                  $datCat=mysqli_fetch_array($selCat, MYSQLI_ASSOC);
+                  $consultar_destinos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM destino WHERE cantidad > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
 
                   $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                   $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
         
                   $numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
-                  if(mysqli_num_rows($consultar_destinos)>=1){
-                    echo '<h3 class="text-center">Se muestran los destinos de la categoría <strong>"'.$datCat['Nombre'].'"</strong></h3><br>';
-                    while($prod=mysqli_fetch_array($consultar_destinos, MYSQLI_ASSOC)){
                 ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                          <div class="thumbnail">
-                           <img class="img-destino" src="./assets/img-destinos/<?php if($prod['Imagen']!="" && is_file("./assets/img-destinos/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
+                           <img class="img-destino" src="./assets/img-destinos/<?php if($destino['Imagen']!="" && is_file("./assets/img-destinos/".$destino['Imagen'])){ echo $destino['Imagen']; }else{ echo "default.png"; } ?>
                            ">
                            <div class="caption">
-                             <h3><?php echo $prod['Provincia']; ?></h3>
-                             <p><?php echo $prod['NombreDestino']; ?></p>
-                             <?php if($prod['Descuento']>0): ?>
+                             <h3><?php echo $destino['Provincia']; ?></h3>
+                             <p><?php echo $destino['NombreDestino']; ?></p>
+                             <?php if($destino['Descuento']>0): ?>
                              <p>
                              <?php
-                             $pref=number_format($prod['Precio']-($prod['Precio']*($prod['Descuento']/100)), 2, '.', '');
-                             echo $prod['Descuento']."% descuento: $".$pref; 
+                             $pref=number_format($destino['Precio']-($destino['Precio']*($destino['Descuento']/100)), 2, '.', '');
+                             echo $destino['Descuento']."% descuento: $".$pref; 
                              ?>
                              </p>
                              <?php else: ?>
-                              <p>$<?php echo $prod['Precio']; ?></p>
+                              <p>$<?php echo $destino['Precio']; ?></p>
                              <?php endif; ?>
                              <p class="text-center">
-                                 <a href="infoProd.php?CodigoDestino=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                                 <a href="infoProd.php?CodigoDestino=<?php echo $destino['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                              </p>
 
                            </div>
                          </div>
                      </div>     
-                <?php    
-                  }
-                  if($numeropaginas>0):
-                ?>
+\
                 <div class="clearfix"></div>
                 <div class="text-center">
                   <ul class="pagination">
@@ -119,24 +86,7 @@ include './library/consulSQL.php';
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                    <?php else: ?>
-                        <li>
-                            <a href="destino.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina-1; ?>">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
                     <?php endif; ?>
-
-
-                    <?php
-                        for($i=1; $i <= $numeropaginas; $i++ ){
-                            if($pagina == $i){
-                                echo '<li class="active"><a href="destino.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
-                            }else{
-                                echo '<li><a href="destino.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
-                            }
-                        }
-                    ?>
                     
 
                     <?php if($pagina == $numeropaginas): ?>
@@ -145,30 +95,10 @@ include './library/consulSQL.php';
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                    <?php else: ?>
-                        <li>
-                            <a href="destino.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina+1; ?>">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
                     <?php endif; ?>
                   </ul>
                 </div>
-                <?php
-                  endif;
-                  }else{
-                    echo '<h2 class="text-center">Lo sentimos, no hay destinos registrados en la categoría <strong>"'.$datCat['Nombre'].'"</strong></h2>';
-                  }
-                ?>
-              </div>
-            <?php
-                }else{
-                  echo '<h2 class="text-center">Por favor seleccione una categoría para empezar</h2>';
-                }
-              else:
-                echo '<h2 class="text-center">Lo sentimos, no hay destinos ni categorías registradas en la tienda</h2>';
-              endif;
-            ?>
+
         </div>
     </section>
     <?php include './inc/footer.php'; ?>

@@ -25,50 +25,50 @@
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Código de destino</label>
-                                <input type="text" class="form-control" required maxlength="30" name="prod-codigo">
+                                <input type="text" class="form-control" required maxlength="30" name="destino-codigo">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Nombre de destino</label>
-                                <input type="text" class="form-control" required maxlength="30" name="prod-name">
+                                <input type="text" class="form-control" required maxlength="30" name="destino-name">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Provincia</label>
-                                <input type="text" class="form-control" required name="prod-Provincia">
+                                <input type="text" class="form-control" required name="destino-Provincia">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Canton</label>
-                                <input type="text" class="form-control" required name="prod-model">
+                                <input type="text" class="form-control" required name="destino-model">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Precio</label>
-                                <input type="text" class="form-control" required maxlength="20" pattern="[0-9.]{1,20}" name="prod-price">
+                                <input type="text" class="form-control" required maxlength="20" pattern="[0-9.]{1,20}" name="destino-price">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Descuento (%)</label>
-                                <input type="text" class="form-control" required maxlength="2" pattern="[0-9]{1,2}" name="prod-desc-price" value="0">
+                                <input type="text" class="form-control" required maxlength="2" pattern="[0-9]{1,2}" name="destino-desc-price" value="0">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Unidades disponibles</label>
-                                <input type="text" class="form-control" required maxlength="20" pattern="[0-9]{1,20}" name="prod-cantidad">
+                                <input type="text" class="form-control" required maxlength="20" pattern="[0-9]{1,20}" name="destino-cantidad">
                               </div>
                             </div>
                             
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group">
                                 <label>Estado</label>
-                                <select class="form-control" name="prod-estado">
+                                <select class="form-control" name="destino-estado">
                                     <option value="Activo" selected="">Activo</option>
                                     <option value="Desactivado">Desactivado</option>
                                 </select>

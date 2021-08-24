@@ -3,23 +3,23 @@
     include '../library/configServer.php';
     include '../library/consulSQL.php';
 
-    $codeProd=consultasSQL::clean_string($_POST['prod-codigo']);
-    $nameProd=consultasSQL::clean_string($_POST['prod-name']);
-    $priceProd=consultasSQL::clean_string($_POST['prod-price']);
-    $modelProd=consultasSQL::clean_string($_POST['prod-model']);
-    $ProvinciaProd=consultasSQL::clean_string($_POST['prod-Provincia']);
-    $cantidadProd=consultasSQL::clean_string($_POST['prod-cantidad']);
-    $codePProd=consultasSQL::clean_string($_POST['prod-codigoP']);
-    $estadoProd=consultasSQL::clean_string($_POST['prod-estado']);
-    $adminProd=consultasSQL::clean_string($_POST['admin-name']);
-    $descProd=consultasSQL::clean_string($_POST['prod-desc-price']);
+    $codedestino=consultasSQL::clean_string($_POST['destino-codigo']);
+    $namedestino=consultasSQL::clean_string($_POST['destino-name']);
+    $pricedestino=consultasSQL::clean_string($_POST['destino-price']);
+    $modeldestino=consultasSQL::clean_string($_POST['destino-model']);
+    $Provinciadestino=consultasSQL::clean_string($_POST['destino-Provincia']);
+    $cantidaddestino=consultasSQL::clean_string($_POST['destino-cantidad']);
+    $codePdestino=consultasSQL::clean_string($_POST['destino-codigoP']);
+    $estadodestino=consultasSQL::clean_string($_POST['destino-estado']);
+    $admindestino=consultasSQL::clean_string($_POST['admin-name']);
+    $descdestino=consultasSQL::clean_string($_POST['destino-desc-price']);
     $imgName=$_FILES['img']['name'];
     $imgType=$_FILES['img']['type'];
     $imgSize=$_FILES['img']['size'];
     $imgMaxSize=5120;
 
-    if($codeProd!="" && $nameProd!="" && $cateProd!="" && $priceProd!="" && $modelProd!="" && $ProvinciaProd!="" && $cantidadProd!="" && $codePProd!=""){
-        $verificar=  ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$codeProd."'");
+    if($codedestino!="" && $namedestino!="" && $catedestino!="" && $pricedestino!="" && $modeldestino!="" && $Provinciadestino!="" && $cantidaddestino!="" && $codePdestino!=""){
+        $verificar=  ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$codedestino."'");
         $verificaltotal = mysqli_num_rows($verificar);
         if($verificaltotal<=0){
             if($imgType=="image/jpeg" || $imgType=="image/png"){
@@ -33,9 +33,9 @@
                         $imgEx=".png";
                       break;
                     }
-                    $imgFinalName=$codeProd.$imgEx;
+                    $imgFinalName=$codedestino.$imgEx;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-destinos/".$imgFinalName)){
-                        if(consultasSQL::InsertSQL("destino", "CodigoDestino, NombreDestino, CodigoCat, Precio, Descuento, Canton, Provincia, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$ProvinciaProd','$cantidadProd','$codePProd','$imgFinalName','$adminProd', '$estadoProd'")){
+                        if(consultasSQL::InsertSQL("destino", "CodigoDestino, NombreDestino, CodigoCat, Precio, Descuento, Canton, Provincia, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codedestino','$namedestino','$catedestino','$pricedestino', '$descdestino', '$modeldestino','$Provinciadestino','$cantidaddestino','$codePdestino','$imgFinalName','$admindestino', '$estadodestino'")){
                             echo '<script>
                                 swal({
                                   title: "destino registrado",
