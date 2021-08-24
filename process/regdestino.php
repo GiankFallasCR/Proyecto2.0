@@ -34,7 +34,7 @@
                     }
                     $imgFinalName=$codedestino.$imgEx;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-destinos/".$imgFinalName)){
-                        if(consultasSQL::InsertSQL("destino", "CodigoDestino, NombreDestino, CodigoCat, Precio, Descuento, Canton, Provincia, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codedestino','$namedestino','$catedestino','$pricedestino', '$descdestino', '$cantondestino','$Provinciadestino','$cantidaddestino','$codePdestino','$imgFinalName','$admindestino', '$estadodestino'")){
+                        if(consultasSQL::InsertSQL("destino", "CodigoDestino, NombreDestino, Precio, Descuento, Canton, Provincia, cantidad, Imagen, Nombre, Estado", "'$codedestino','$namedestino','$pricedestino', '$descdestino', '$cantondestino','$Provinciadestino','$cantidaddestino','$imgFinalName','$admindestino', '$estadodestino'")){
                             echo '<script>
                                 swal({
                                   title: "destino registrado",
