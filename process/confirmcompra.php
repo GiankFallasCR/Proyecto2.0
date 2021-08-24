@@ -55,7 +55,7 @@ if(mysqli_num_rows($verdata)>=1){
         }
         mysqli_free_result($consulta);
     }
-    if(consultasSQL::InsertSQL("venta", "Fecha, Cedula, TotalPagar, Estado, NumeroDeposito, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$tipoenvio','$comprobanteF'")){
+    if(consultasSQL::InsertSQL("venta", "Fecha, Cedula, TotalPagar, Estado, NumeroDeposito, Adjunto", "'".date('d-m-Y')."','$Cedclien','$suma','$StatusV','$NumDepo','$comprobanteF'")){
 
       /*recuperando el número del pedido actual*/
       $verId=ejecutarSQL::consultar("SELECT * FROM venta WHERE Cedula='$Cedclien' ORDER BY NumPedido desc limit 1");
