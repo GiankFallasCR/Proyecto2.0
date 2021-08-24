@@ -68,7 +68,7 @@
                         		<a href="configAdmin.php?view=destinoinfo&code=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-raised btn-xs btn-success">Actualizar</a>
                         	</td>
                         	<td class="text-center">
-                        		<form action="process/delprod.php" method="POST" class="FormCatElec" data-form="delete">
+                        		<form action="process/deldestino.php" method="POST" class="FormCatElec" data-form="delete">
                         			<input type="hidden" name="prod-code" value="<?php echo $prod['CodigoDestino']; ?>">
                         			<button type="submit" class="btn btn-raised btn-xs btn-danger">Eliminar</button>	
                         		</form>
