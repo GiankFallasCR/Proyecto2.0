@@ -24,12 +24,10 @@
                           	  <th class="text-center">#</th>
                               <th class="text-center">Código</th>
                               <th class="text-center">Nombre</th>
-                              <th class="text-center">Categoría</th>
                               <th class="text-center">Precio</th>
                               <th class="text-center">Canton</th>
                               <th class="text-center">Provincia</th>
                               <th class="text-center">cantidad</th>
-                              <th class="text-center">Proveedor</th>
                               <th class="text-center">Estado</th>
                               <th class="text-center">Actualizar</th>
                               <th class="text-center">Eliminar</th>
@@ -58,24 +56,10 @@
                         	<td class="text-center"><?php echo $cr; ?></td>
                         	<td class="text-center"><?php echo $prod['CodigoDestino']; ?></td>
                         	<td class="text-center"><?php echo $prod['NombreDestino']; ?></td>
-                        	<td class="text-center">
-                        		<?php 
-                        			$categ=ejecutarSQL::consultar("SELECT Nombre FROM categoria WHERE CodigoCat='".$prod['CodigoCat']."'");
-                        			$datc=mysqli_fetch_array($categ, MYSQLI_ASSOC);
-                        			echo $datc['Nombre'];
-                        		?>
-                        	</td>
                         	<td class="text-center"><?php echo $prod['Precio']; ?></td>
                         	<td class="text-center"><?php echo $prod['Canton']; ?></td>
                         	<td class="text-center"><?php echo $prod['Provincia']; ?></td>
                         	<td class="text-center"><?php echo $prod['cantidad']; ?></td>
-                        	<td class="text-center">
-                        		<?php
-                        			$prov=ejecutarSQL::consultar("SELECT NombreProveedor FROM proveedor WHERE CedulaProveedor='".$prod['CedulaProveedor']."'");
-                        			$datp=mysqli_fetch_array($prov, MYSQLI_ASSOC);
-                        			echo $datp['NombreProveedor'];
-                        		?>
-                        	</td>
                         	<td class="text-center">
                         		<?php echo $prod['Estado']; ?>
                         	</td>
