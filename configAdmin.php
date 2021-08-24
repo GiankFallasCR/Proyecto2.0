@@ -20,7 +20,7 @@
           <ul class="nav nav-tabs nav-justified" style="margin-bottom: 15px;">
             <li>
               <a href="configAdmin.php?view=product">
-                <i class="fa fa-cubes" aria-hidden="true"></i> &nbsp; Productos
+                <i class="fa fa-cubes" aria-hidden="true"></i> &nbsp; Destinos
               </a>
             </li>
             <li>
