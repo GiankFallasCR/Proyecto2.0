@@ -54,7 +54,7 @@
                             ';
                         }else{
                             echo '<p class="text-center text-danger lead">El carrito de compras esta vacío</p><br>
-                            <a href="destino.php" class="btn btn-primary btn-lg btn-raised">Ir a destinos</a>';
+                            <a href="index.php" class="btn btn-primary btn-lg btn-raised">Ir a destinos</a>';
                                                         
                         }  
                     ?>
