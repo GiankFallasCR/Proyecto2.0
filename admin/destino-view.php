@@ -11,6 +11,7 @@
         <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en la lista</a>
     </li>
 </ul>
+
 <div class="container">
 	<div class="row">
         <div class="col-xs-12">

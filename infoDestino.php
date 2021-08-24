@@ -20,7 +20,7 @@ include './library/consulSQL.php';
                 </div>
                 <?php 
                     $Codigodestino=consultasSQL::clean_string($_GET['CodigoDestino']);
-                    $destinoinfo=  ejecutarSQL::consultar("SELECT destino.CodigoDestino,destino.NombreDestino,destino.Cupos,categoria.Nombre,destino.Precio,destino.Descuento,destino.cantidad,destino.Imagen FROM categoria INNER JOIN destino ON destino.CodigoCat=categoria.CodigoCat  WHERE CodigoDestino='".$Codigodestino."'");
+                    $destinoinfo=  ejecutarSQL::consultar("SELECT destino.CodigoDestino,destino.NombreDestino,destino.Precio,destino.Descuento,destino.cantidad,destino.Imagen FROM destino WHERE CodigoDestino='".$Codigodestino."'");
                     while($fila=mysqli_fetch_array($destinoinfo, MYSQLI_ASSOC)){
                         echo '
                             <div class="col-xs-12 col-sm-6">

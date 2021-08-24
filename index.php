@@ -50,7 +50,6 @@
             <span class="sr-only">Next</span>
         </a>
     </section>
-    
     <section id="new-prod-index">    
          <div class="container">
             <div class="page-header">
@@ -96,7 +95,6 @@
             </div>
          </div>
     </section>
-    
     <section id="reg-info-index">
         <div class="container">
             <div class="row">

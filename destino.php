@@ -10,7 +10,10 @@ include './library/consulSQL.php';
 </head>
 <body id="container-page-destino">
     <?php include './inc/navbar.php'; ?>
+    
+    
     <div class="container">
+      
 	<div class="row">
 		<div class="col-xs-12">
             <br><br>
