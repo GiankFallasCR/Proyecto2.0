@@ -71,12 +71,12 @@ if(mysqli_num_rows($verdata)>=1){
           	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos, PrecioProd", "'$Numpedido', '".$carro['producto']."', '".$carro['cantidad']."', '$pref'");
           	mysqli_free_result($preP);
 
-        /*Restando stock a cada producto seleccionado en el carrito*/
-        $prodStock=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$carro['producto']."'");
-        while($fila = mysqli_fetch_array($prodStock, MYSQLI_ASSOC)) {
-            $existencias = $fila['Stock'];
+        /*Restando cantidad a cada producto seleccionado en el carrito*/
+        $prodcantidad=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$carro['producto']."'");
+        while($fila = mysqli_fetch_array($prodcantidad, MYSQLI_ASSOC)) {
+            $existencias = $fila['cantidad'];
             $existenciasRest=$carro['cantidad'];
-            consultasSQL::UpdateSQL("producto", "Stock=('$existencias'-'$existenciasRest')", "CodigoProd='".$carro['producto']."'");
+            consultasSQL::UpdateSQL("producto", "cantidad=('$existencias'-'$existenciasRest')", "CodigoProd='".$carro['producto']."'");
         }
       }
       

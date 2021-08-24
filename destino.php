@@ -68,7 +68,7 @@ include './library/consulSQL.php';
                   $regpagina = 20;
                   $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                  $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE CodigoCat='$categoria' AND Stock > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
+                  $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE CodigoCat='$categoria' AND cantidad > 0 AND Estado='Activo' LIMIT $inicio, $regpagina");
 
                   $selCat=ejecutarSQL::consultar("SELECT * FROM categoria WHERE CodigoCat='$categoria'");
                   $datCat=mysqli_fetch_array($selCat, MYSQLI_ASSOC);

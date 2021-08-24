@@ -67,7 +67,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Unidades disponibles</label>
-                                <input type="text" class="form-control" value="<?php echo $prod['Stock']; ?>" required maxlength="20" pattern="[0-9]{1,20}" name="prod-stock">
+                                <input type="text" class="form-control" value="<?php echo $prod['cantidad']; ?>" required maxlength="20" pattern="[0-9]{1,20}" name="prod-cantidad">
                               </div>
                             </div>
                             <div class="col-xs-12">

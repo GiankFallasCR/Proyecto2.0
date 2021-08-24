@@ -28,7 +28,7 @@
                               <th class="text-center">Precio</th>
                               <th class="text-center">Modelo</th>
                               <th class="text-center">Marca</th>
-                              <th class="text-center">Stock</th>
+                              <th class="text-center">cantidad</th>
                               <th class="text-center">Proveedor</th>
                               <th class="text-center">Estado</th>
                               <th class="text-center">Actualizar</th>
@@ -68,7 +68,7 @@
                         	<td class="text-center"><?php echo $prod['Precio']; ?></td>
                         	<td class="text-center"><?php echo $prod['Modelo']; ?></td>
                         	<td class="text-center"><?php echo $prod['Marca']; ?></td>
-                        	<td class="text-center"><?php echo $prod['Stock']; ?></td>
+                        	<td class="text-center"><?php echo $prod['cantidad']; ?></td>
                         	<td class="text-center">
                         		<?php
                         			$prov=ejecutarSQL::consultar("SELECT NombreProveedor FROM proveedor WHERE NITProveedor='".$prod['NITProveedor']."'");
