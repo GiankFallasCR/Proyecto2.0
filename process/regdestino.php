@@ -25,7 +25,7 @@
         if($verificaltotal<=0){
             if($imgType=="image/jpeg" || $imgType=="image/png"){
                 if(($imgSize/1024)<=$imgMaxSize){
-                    chmod('../assets/img-products/', 0777);
+                    chmod('../assets/img-destinos/', 0777);
                     switch ($imgType) {
                       case 'image/jpeg':
                         $imgEx=".jpg";
@@ -35,7 +35,7 @@
                       break;
                     }
                     $imgFinalName=$codeProd.$imgEx;
-                    if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-products/".$imgFinalName)){
+                    if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-destinos/".$imgFinalName)){
                         if(consultasSQL::InsertSQL("destino", "CodigoDestino, NombreDestino, CodigoCat, Precio, Descuento, Canton, Provincia, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$ProvinciaProd','$cantidadProd','$codePProd','$imgFinalName','$adminProd', '$estadoProd'")){
                             echo '<script>
                                 swal({

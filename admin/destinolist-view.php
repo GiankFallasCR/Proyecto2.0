@@ -3,12 +3,12 @@
 </p>
 <ul class="breadcrumb" style="margin-bottom: 5px;">
     <li>
-        <a href="configAdmin.php?view=product">
+        <a href="configAdmin.php?view=destino">
             <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Nuevo destino
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=productlist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
+        <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
     </li>
 </ul>
 <div class="container">
@@ -80,7 +80,7 @@
                         		<?php echo $prod['Estado']; ?>
                         	</td>
                         	<td class="text-center">
-                        		<a href="configAdmin.php?view=productinfo&code=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-raised btn-xs btn-success">Actualizar</a>
+                        		<a href="configAdmin.php?view=destinoinfo&code=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-raised btn-xs btn-success">Actualizar</a>
                         	</td>
                         	<td class="text-center">
                         		<form action="process/delprod.php" method="POST" class="FormCatElec" data-form="delete">
@@ -107,7 +107,7 @@
                         </li>
                     <?php else: ?>
                         <li>
-                            <a href="configAdmin.php?view=productlist&pag=<?php echo $pagina-1; ?>">
+                            <a href="configAdmin.php?view=destinolist&pag=<?php echo $pagina-1; ?>">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -117,9 +117,9 @@
                     <?php
                         for($i=1; $i <= $numeropaginas; $i++ ){
                             if($pagina == $i){
-                                echo '<li class="active"><a href="configAdmin.php?view=productlist&pag='.$i.'">'.$i.'</a></li>';
+                                echo '<li class="active"><a href="configAdmin.php?view=destinolist&pag='.$i.'">'.$i.'</a></li>';
                             }else{
-                                echo '<li><a href="configAdmin.php?view=productlist&pag='.$i.'">'.$i.'</a></li>';
+                                echo '<li><a href="configAdmin.php?view=destinolist&pag='.$i.'">'.$i.'</a></li>';
                             }
                         }
                     ?>
@@ -133,7 +133,7 @@
                         </li>
                     <?php else: ?>
                         <li>
-                            <a href="configAdmin.php?view=productlist&pag=<?php echo $pagina+1; ?>">
+                            <a href="configAdmin.php?view=destinolist&pag=<?php echo $pagina+1; ?>">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

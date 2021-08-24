@@ -10,9 +10,9 @@ include './library/consulSQL.php';
     <?php include './inc/link.php'; ?>
 </head>
 
-<body id="container-page-product">
+<body id="container-page-destino">
     <?php include './inc/navbar.php'; ?>
-    <section id="infoproduct">
+    <section id="infodestino">
         <div class="container">
             <div class="row">
                 <div class="page-header">
@@ -48,13 +48,13 @@ include './library/consulSQL.php';
                                 }else{
                                     echo '<p class="text-center text-danger lead">No hay existencias de este destino</p><br>';
                                 }
-                                if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ 
-                                    $imagenFile="./assets/img-products/".$fila['Imagen']; 
+                                if($fila['Imagen']!="" && is_file("./assets/img-destinos/".$fila['Imagen'])){ 
+                                    $imagenFile="./assets/img-destinos/".$fila['Imagen']; 
                                 }else{ 
-                                    $imagenFile="./assets/img-products/default.png"; 
+                                    $imagenFile="./assets/img-destinos/default.png"; 
                                 }
                                 echo '<br>
-                                <a href="product.php" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a la tienda</a>
+                                <a href="destino.php" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a la tienda</a>
                             </div>
 
 

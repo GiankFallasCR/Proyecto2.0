@@ -8,7 +8,7 @@ include './library/consulSQL.php';
     <title>destinos</title>
     <?php include './inc/link.php'; ?>
 </head>
-<body id="container-page-product">
+<body id="container-page-destino">
     <?php include './inc/navbar.php'; ?>
     <section id="store">
        <br>
@@ -60,7 +60,7 @@ include './library/consulSQL.php';
                   ?>
                       <div class="col-xs-12 col-sm-6 col-md-4">
                            <div class="thumbnail">
-                             <img src="./assets/img-products/<?php if($prod['Imagen']!="" && is_file("./assets/img-products/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
+                             <img src="./assets/img-destinos/<?php if($prod['Imagen']!="" && is_file("./assets/img-destinos/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
                              ">
                              <div class="caption">
                                <h3><?php echo $prod['Provincia']; ?></h3>

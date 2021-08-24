@@ -10,7 +10,7 @@
     if(mysqli_num_rows($checP)<=0){
         if(consultasSQL::DeleteSQL('destino', "CodigoDestino='".$codeProd."'")){
             $imagen=$tmp['Imagen'];
-            $carpeta='../assets/img-products/';
+            $carpeta='../assets/img-destinos/';
             $directorio=$carpeta.$imagen;
             if(is_file($directorio)){
               chmod($directorio, 0777);

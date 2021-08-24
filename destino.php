@@ -8,7 +8,7 @@ include './library/consulSQL.php';
     <title>Destinos</title>
     <?php include './inc/link.php'; ?>
 </head>
-<body id="container-page-product">
+<body id="container-page-destino">
     <?php include './inc/navbar.php'; ?>
     <section id="store">
        <br>
@@ -32,7 +32,7 @@ include './library/consulSQL.php';
                         <?php 
                           while($cate=mysqli_fetch_array($checkAllCat, MYSQLI_ASSOC)){
                               echo '
-                                <li><a href="product.php?categ='.$cate['CodigoCat'].'">'.$cate['Nombre'].'</a></li>
+                                <li><a href="destino.php?categ='.$cate['CodigoCat'].'">'.$cate['Nombre'].'</a></li>
                                 <li role="separator" class="divider"></li>
                               ';
                           }
@@ -84,7 +84,7 @@ include './library/consulSQL.php';
                 ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
                          <div class="thumbnail">
-                           <img class="img-product" src="./assets/img-products/<?php if($prod['Imagen']!="" && is_file("./assets/img-products/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
+                           <img class="img-destino" src="./assets/img-destinos/<?php if($prod['Imagen']!="" && is_file("./assets/img-destinos/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
                            ">
                            <div class="caption">
                              <h3><?php echo $prod['Provincia']; ?></h3>
@@ -121,7 +121,7 @@ include './library/consulSQL.php';
                         </li>
                     <?php else: ?>
                         <li>
-                            <a href="product.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina-1; ?>">
+                            <a href="destino.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina-1; ?>">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -131,9 +131,9 @@ include './library/consulSQL.php';
                     <?php
                         for($i=1; $i <= $numeropaginas; $i++ ){
                             if($pagina == $i){
-                                echo '<li class="active"><a href="product.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
+                                echo '<li class="active"><a href="destino.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
                             }else{
-                                echo '<li><a href="product.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
+                                echo '<li><a href="destino.php?categ='.$categoria.'&pag='.$i.'">'.$i.'</a></li>';
                             }
                         }
                     ?>
@@ -147,7 +147,7 @@ include './library/consulSQL.php';
                         </li>
                     <?php else: ?>
                         <li>
-                            <a href="product.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina+1; ?>">
+                            <a href="destino.php?categ=<?php echo $categoria; ?>&pag=<?php echo $pagina+1; ?>">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

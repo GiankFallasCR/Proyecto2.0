@@ -11,7 +11,7 @@
 </head>
 <body id="container-page-configAdmin">
     <?php include './inc/navbar.php'; ?>
-    <section id="prove-product-cat-config">
+    <section id="prove-destino-cat-config">
         <div class="container">
           <div class="page-header">
             <h1>Panel de administración <small class="tittles-pages-logo">ViajiTico</small></h1>
@@ -19,7 +19,7 @@
           <!--====  Nav Tabs  ====-->
           <ul class="nav nav-tabs nav-justified" style="margin-bottom: 15px;">
             <li>
-              <a href="configAdmin.php?view=product">
+              <a href="configAdmin.php?view=destino">
                 <i class="fa fa-map" aria-hidden="true"></i> &nbsp; Destinos
               </a>
             </li>
@@ -46,7 +46,7 @@
           </ul>
           <?php
             $content=$_GET['view'];
-            $WhiteList=["product","productlist","productinfo","provider","providerlist","providerinfo","category","categorylist","categoryinfo","admin","adminlist","order","bank","account"];
+            $WhiteList=["destino","destinolist","destinoinfo","provider","providerlist","providerinfo","category","categorylist","categoryinfo","admin","adminlist","order","bank","account"];
             if(isset($content)){
               if(in_array($content, $WhiteList) && is_file("./admin/".$content."-view.php")){
                 include "./admin/".$content."-view.php";

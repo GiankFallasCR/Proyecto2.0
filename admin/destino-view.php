@@ -3,12 +3,12 @@
 </p>
 <ul class="breadcrumb" style="margin-bottom: 5px;">
     <li>
-        <a href="configAdmin.php?view=product">
+        <a href="configAdmin.php?view=destino">
             <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Nuevo destino
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=productlist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
+        <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
     </li>
 </ul>
 <div class="container">
@@ -16,7 +16,7 @@
         <div class="col-xs-12">
             <div class="container-form-admin">
                 <h3 class="text-primary text-center">Agregar un destino</h3>
-                <form action="./process/regproduct.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="save">
+                <form action="./process/regdestino.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="save">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">

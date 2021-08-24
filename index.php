@@ -67,7 +67,7 @@
                 ?>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                      <div class="thumbnail">
-                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">
+                       <img class="img-destino" src="assets/img-destinos/<?php if($fila['Imagen']!="" && is_file("./assets/img-destinos/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">
                        <div class="caption">
                        		<h3><?php echo $fila['Provincia']; ?></h3>
                             <p><?php echo $fila['NombreDestino']; ?></p>

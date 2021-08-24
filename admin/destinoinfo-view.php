@@ -3,12 +3,12 @@
 </p>
 <ul class="breadcrumb" style="margin-bottom: 5px;">
     <li>
-        <a href="configAdmin.php?view=product">
+        <a href="configAdmin.php?view=destino">
             <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Nuevo destino
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=productlist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
+        <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
     </li>
 </ul>
 <div class="container">
@@ -21,7 +21,7 @@
                 	$destino=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='$code'");
                 	$prod=mysqli_fetch_array($destino, MYSQLI_ASSOC);
                 ?>
-                <form action="./process/updateProduct.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="update">
+                <form action="./process/updatedestino.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="update">
                 	<input type="hidden" name="code-old-prod" value="<?php echo $prod['CodigoDestino']; ?>">
                     <div class="container-fluid">
                         <div class="row">
