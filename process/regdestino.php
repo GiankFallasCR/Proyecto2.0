@@ -17,7 +17,7 @@
     $imgSize=$_FILES['img']['size'];
     $imgMaxSize=5120;
 
-    if($codedestino!="" && $namedestino!="" && $catedestino!="" && $pricedestino!="" && $cantondestino!="" && $Provinciadestino!="" && $cantidaddestino!=""){
+    if($codedestino!="" && $namedestino!="" && $pricedestino!="" && $cantondestino!="" && $Provinciadestino!="" && $cantidaddestino!=""){
         $verificar=  ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$codedestino."'");
         $verificaltotal = mysqli_num_rows($verificar);
         if($verificaltotal<=0){
