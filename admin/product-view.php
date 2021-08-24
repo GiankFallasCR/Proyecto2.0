@@ -36,13 +36,13 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
-                                <label class="control-label">Marca</label>
-                                <input type="text" class="form-control" required name="prod-marca">
+                                <label class="control-label">Provincia</label>
+                                <input type="text" class="form-control" required name="prod-Provincia">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
-                                <label class="control-label">Modelo</label>
+                                <label class="control-label">Canton</label>
                                 <input type="text" class="form-control" required name="prod-model">
                               </div>
                             </div>
@@ -64,35 +64,7 @@
                                 <input type="text" class="form-control" required maxlength="20" pattern="[0-9]{1,20}" name="prod-cantidad">
                               </div>
                             </div>
-                            <div class="col-xs-12">
-                                <legend>Categoría, proveedor y estado</legend>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                              <div class="form-group">
-                                <label>Categoría</label>
-                                <select class="form-control" name="prod-categoria">
-                                    <?php
-                                        $categoriac= ejecutarSQL::consultar("SELECT * FROM categoria");
-                                        while($catec=mysqli_fetch_array($categoriac, MYSQLI_ASSOC)){
-                                            echo '<option value="'.$catec['CodigoCat'].'">'.$catec['Nombre'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                              <div class="form-group">
-                                <label>Proveedor</label>
-                                <select class="form-control" name="prod-codigoP">
-                                    <?php
-                                        $proveedoresc=  ejecutarSQL::consultar("SELECT * FROM proveedor");
-                                        while($provc=mysqli_fetch_array($proveedoresc, MYSQLI_ASSOC)){
-                                            echo '<option value="'.$provc['CedulaProveedor'].'">'.$provc['NombreProveedor'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                              </div>
-                            </div>
+                            
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group">
                                 <label>Estado</label>

@@ -8,7 +8,7 @@
     $cateProd=consultasSQL::clean_string($_POST['prod-categoria']);
     $priceProd=consultasSQL::clean_string($_POST['prod-price']);
     $modelProd=consultasSQL::clean_string($_POST['prod-model']);
-    $marcaProd=consultasSQL::clean_string($_POST['prod-marca']);
+    $ProvinciaProd=consultasSQL::clean_string($_POST['prod-Provincia']);
     $cantidadProd=consultasSQL::clean_string($_POST['prod-cantidad']);
     $codePProd=consultasSQL::clean_string($_POST['prod-codigoP']);
     $estadoProd=consultasSQL::clean_string($_POST['prod-estado']);
@@ -19,8 +19,8 @@
     $imgSize=$_FILES['img']['size'];
     $imgMaxSize=5120;
 
-    if($codeProd!="" && $nameProd!="" && $cateProd!="" && $priceProd!="" && $modelProd!="" && $marcaProd!="" && $cantidadProd!="" && $codePProd!=""){
-        $verificar=  ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$codeProd."'");
+    if($codeProd!="" && $nameProd!="" && $cateProd!="" && $priceProd!="" && $modelProd!="" && $ProvinciaProd!="" && $cantidadProd!="" && $codePProd!=""){
+        $verificar=  ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$codeProd."'");
         $verificaltotal = mysqli_num_rows($verificar);
         if($verificaltotal<=0){
             if($imgType=="image/jpeg" || $imgType=="image/png"){
@@ -36,7 +36,7 @@
                     }
                     $imgFinalName=$codeProd.$imgEx;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],"../assets/img-products/".$imgFinalName)){
-                        if(consultasSQL::InsertSQL("producto", "CodigoProd, NombreProd, CodigoCat, Precio, Descuento, Modelo, Marca, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$marcaProd','$cantidadProd','$codePProd','$imgFinalName','$adminProd', '$estadoProd'")){
+                        if(consultasSQL::InsertSQL("producto", "CodigoDestino, NombreDestino, CodigoCat, Precio, Descuento, Canton, Provincia, cantidad, CedulaProveedor, Imagen, Nombre, Estado", "'$codeProd','$nameProd','$cateProd','$priceProd', '$descProd', '$modelProd','$ProvinciaProd','$cantidadProd','$codePProd','$imgFinalName','$adminProd', '$estadoProd'")){
                             echo '<script>
                                 swal({
                                   title: "Producto registrado",

@@ -45,7 +45,7 @@ include './library/consulSQL.php';
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                          <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o marca del producto">
+                          <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del producto">
                           <span class="input-group-btn">
                               <button class="btn btn-info btn-raised" type="submit">Buscar</button>
                           </span>
@@ -87,8 +87,8 @@ include './library/consulSQL.php';
                            <img class="img-product" src="./assets/img-products/<?php if($prod['Imagen']!="" && is_file("./assets/img-products/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
                            ">
                            <div class="caption">
-                             <h3><?php echo $prod['Marca']; ?></h3>
-                             <p><?php echo $prod['NombreProd']; ?></p>
+                             <h3><?php echo $prod['Provincia']; ?></h3>
+                             <p><?php echo $prod['NombreDestino']; ?></p>
                              <?php if($prod['Descuento']>0): ?>
                              <p>
                              <?php
@@ -100,7 +100,7 @@ include './library/consulSQL.php';
                               <p>$<?php echo $prod['Precio']; ?></p>
                              <?php endif; ?>
                              <p class="text-center">
-                                 <a href="infoProd.php?CodigoProd=<?php echo $prod['CodigoProd']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                                 <a href="infoProd.php?CodigoDestino=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                              </p>
 
                            </div>

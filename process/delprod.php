@@ -4,11 +4,11 @@
      
      $codeProd=consultasSQL::clean_string($_POST['prod-code']);
 
-    $checP=ejecutarSQL::consultar("SELECT * FROM detalle WHERE CodigoProd='$codeProd'");
-    $cons=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='$codeProd'");
+    $checP=ejecutarSQL::consultar("SELECT * FROM detalle WHERE CodigoDestino='$codeProd'");
+    $cons=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='$codeProd'");
     $tmp=mysqli_fetch_array($cons, MYSQLI_ASSOC);
     if(mysqli_num_rows($checP)<=0){
-        if(consultasSQL::DeleteSQL('producto', "CodigoProd='".$codeProd."'")){
+        if(consultasSQL::DeleteSQL('producto', "CodigoDestino='".$codeProd."'")){
             $imagen=$tmp['Imagen'];
             $carpeta='../assets/img-products/';
             $directorio=$carpeta.$imagen;

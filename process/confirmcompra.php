@@ -49,7 +49,7 @@ if(mysqli_num_rows($verdata)>=1){
     $StatusV="Pendiente";
     $suma = 0;
     foreach($_SESSION['carro'] as $codess){
-        $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$codess['producto']."'");
+        $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$codess['producto']."'");
         while($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
           $tp=number_format($fila['Precio']-($fila['Precio']*($fila['Descuento']/100)), 2, '.', '');
           $suma += $tp*$codess['cantidad'];
@@ -65,18 +65,18 @@ if(mysqli_num_rows($verdata)>=1){
 
       /*Insertando datos en detalle de la venta*/
       foreach($_SESSION['carro'] as $carro){
-      		$preP=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$carro['producto']."'");
+      		$preP=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$carro['producto']."'");
       		$filaP=mysqli_fetch_array($preP, MYSQLI_ASSOC);
           $pref=number_format($filaP['Precio']-($filaP['Precio']*($filaP['Descuento']/100)), 2, '.', '');
-          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos, PrecioProd", "'$Numpedido', '".$carro['producto']."', '".$carro['cantidad']."', '$pref'");
+          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoDestino, CantidadProductos, PrecioProd", "'$Numpedido', '".$carro['producto']."', '".$carro['cantidad']."', '$pref'");
           	mysqli_free_result($preP);
 
         /*Restando cantidad a cada producto seleccionado en el carrito*/
-        $prodcantidad=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$carro['producto']."'");
+        $prodcantidad=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$carro['producto']."'");
         while($fila = mysqli_fetch_array($prodcantidad, MYSQLI_ASSOC)) {
             $existencias = $fila['cantidad'];
             $existenciasRest=$carro['cantidad'];
-            consultasSQL::UpdateSQL("producto", "cantidad=('$existencias'-'$existenciasRest')", "CodigoProd='".$carro['producto']."'");
+            consultasSQL::UpdateSQL("producto", "cantidad=('$existencias'-'$existenciasRest')", "CodigoDestino='".$carro['producto']."'");
         }
       }
       

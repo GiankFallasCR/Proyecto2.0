@@ -60,9 +60,9 @@ $pdf->SetFont("Times","",12);
 $suma=0;
 $sDet=ejecutarSQL::consultar("SELECT * FROM detalle WHERE NumPedido='".$id."'");
 while($fila1 = mysqli_fetch_array($sDet, MYSQLI_ASSOC)){
-    $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$fila1['CodigoProd']."'");
+    $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$fila1['CodigoDestino']."'");
     $fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
-    $pdf->Cell (76,10,utf8_decode($fila['NombreProd']),1,0,'C');
+    $pdf->Cell (76,10,utf8_decode($fila['NombreDestino']),1,0,'C');
     $pdf->Cell (30,10,utf8_decode('$'.$fila1['PrecioProd']),1,0,'C');
     $pdf->Cell (30,10,utf8_decode($fila1['CantidadProductos']),1,0,'C');
     $pdf->Cell (30,10,utf8_decode('$'.$fila1['PrecioProd']*$fila1['CantidadProductos']),1,0,'C');

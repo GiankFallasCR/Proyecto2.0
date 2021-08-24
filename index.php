@@ -69,8 +69,8 @@
                      <div class="thumbnail">
                        <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">
                        <div class="caption">
-                       		<h3><?php echo $fila['Marca']; ?></h3>
-                            <p><?php echo $fila['NombreProd']; ?></p>
+                       		<h3><?php echo $fila['Provincia']; ?></h3>
+                            <p><?php echo $fila['NombreDestino']; ?></p>
                             <?php if($fila['Descuento']>0): ?>
                              <p>
                              <?php
@@ -82,7 +82,7 @@
                               <p>$<?php echo $fila['Precio']; ?></p>
                              <?php endif; ?>
                         <p class="text-center">
-                            <a href="infoProd.php?CodigoProd=<?php echo $fila['CodigoProd']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                            <a href="infoProd.php?CodigoDestino=<?php echo $fila['CodigoDestino']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                         </p>
                        </div>
                      </div>

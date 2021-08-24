@@ -20,20 +20,20 @@ include './library/consulSQL.php';
                 </div>
                 <?php 
                     $Codigodestino=consultasSQL::clean_string($_GET['CodigoDestino']);
-                    $destinoinfo=  ejecutarSQL::consultar("SELECT destino.CodigoProd,destino.NombreDestino,destino.Cupos,categoria.Nombre,destino.Precio,destino.Descuento,destino.cantidad,destino.Imagen FROM categoria INNER JOIN destino ON destino.CodigoCat=categoria.CodigoCat  WHERE CodigoProd='".$Codigodestino."'");
+                    $destinoinfo=  ejecutarSQL::consultar("SELECT destino.CodigoDestino,destino.NombreDestino,destino.Cupos,categoria.Nombre,destino.Precio,destino.Descuento,destino.cantidad,destino.Imagen FROM categoria INNER JOIN destino ON destino.CodigoCat=categoria.CodigoCat  WHERE CodigoDestino='".$Codigodestino."'");
                     while($fila=mysqli_fetch_array($destinoinfo, MYSQLI_ASSOC)){
                         echo '
                             <div class="col-xs-12 col-sm-6">
                                 <h3 class="text-center">Información de destino</h3>
                                 <br><br>
-                                <h4><strong>Nombre: </strong>'.$fila['NombreProd'].'</h4><br>
+                                <h4><strong>Nombre: </strong>'.$fila['NombreDestino'].'</h4><br>
                                 <h4><strong>Precio: </strong>$'.number_format(($fila['Precio']-($fila['Precio']*($fila['Descuento']/100))), 2, '.', '').'</h4><br>
                                 <h4><strong>Cantidad: </strong>'.$fila['cantidad'].'</h4><br>
                                 <h4><strong>Categoria: </strong>'.$fila['Nombre'].'</h4>';
                                 if($fila['cantidad']>=1){
                                     if($_SESSION['nombreAdmin']!="" || $_SESSION['nombreUser']!=""){
                                         echo '<form action="process/carrito.php" method="POST" class="FormCatElec" data-form="">
-                                            <input type="hidden" value="'.$fila['CodigoProd'].'" name="codigo">
+                                            <input type="hidden" value="'.$fila['CodigoDestino'].'" name="codigo">
                                             <label class="text-center"><small>Agrega la cantidad de destinos que añadiras al carrito de compras (Maximo '.$fila['cantidad'].' destinos)</small></label>
                                             <div class="form-group">
                                                 <input type="number" class="form-control" value="1" min="1" max="'.$fila['cantidad'].'" name="cantidad">

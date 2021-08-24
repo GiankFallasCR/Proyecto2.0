@@ -18,11 +18,11 @@
                 <h3 class="text-primary text-center">Actualizar datos del producto</h3>
                 <?php
                 	$code=$_GET['code'];
-                	$producto=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='$code'");
+                	$producto=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='$code'");
                 	$prod=mysqli_fetch_array($producto, MYSQLI_ASSOC);
                 ?>
                 <form action="./process/updateProduct.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="update">
-                	<input type="hidden" name="code-old-prod" value="<?php echo $prod['CodigoProd']; ?>">
+                	<input type="hidden" name="code-old-prod" value="<?php echo $prod['CodigoDestino']; ?>">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
@@ -31,25 +31,25 @@
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Código de producto</label>
-                                <input type="text" class="form-control" value="<?php echo $prod['CodigoProd']; ?>" required maxlength="30" readonly name="prod-codigo">
+                                <input type="text" class="form-control" value="<?php echo $prod['CodigoDestino']; ?>" required maxlength="30" readonly name="prod-codigo">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Nombre de producto</label>
-                                <input type="text" class="form-control" value="<?php echo $prod['NombreProd']; ?>" required maxlength="30" name="prod-name">
+                                <input type="text" class="form-control" value="<?php echo $prod['NombreDestino']; ?>" required maxlength="30" name="prod-name">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
-                                <label class="control-label">Marca</label>
-                                <input type="text" class="form-control" value="<?php echo $prod['Marca']; ?>" required name="prod-marca">
+                                <label class="control-label">Provincia</label>
+                                <input type="text" class="form-control" value="<?php echo $prod['Provincia']; ?>" required name="prod-Provincia">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
-                                <label class="control-label">Modelo</label>
-                                <input type="text" class="form-control" value="<?php echo $prod['Modelo']; ?>" required name="prod-model">
+                                <label class="control-label">Canton</label>
+                                <input type="text" class="form-control" value="<?php echo $prod['Canton']; ?>" required name="prod-model">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">

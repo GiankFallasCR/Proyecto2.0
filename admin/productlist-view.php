@@ -26,8 +26,8 @@
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Categoría</th>
                               <th class="text-center">Precio</th>
-                              <th class="text-center">Modelo</th>
-                              <th class="text-center">Marca</th>
+                              <th class="text-center">Canton</th>
+                              <th class="text-center">Provincia</th>
                               <th class="text-center">cantidad</th>
                               <th class="text-center">Proveedor</th>
                               <th class="text-center">Estado</th>
@@ -56,8 +56,8 @@
                         ?>
                         <tr>
                         	<td class="text-center"><?php echo $cr; ?></td>
-                        	<td class="text-center"><?php echo $prod['CodigoProd']; ?></td>
-                        	<td class="text-center"><?php echo $prod['NombreProd']; ?></td>
+                        	<td class="text-center"><?php echo $prod['CodigoDestino']; ?></td>
+                        	<td class="text-center"><?php echo $prod['NombreDestino']; ?></td>
                         	<td class="text-center">
                         		<?php 
                         			$categ=ejecutarSQL::consultar("SELECT Nombre FROM categoria WHERE CodigoCat='".$prod['CodigoCat']."'");
@@ -66,8 +66,8 @@
                         		?>
                         	</td>
                         	<td class="text-center"><?php echo $prod['Precio']; ?></td>
-                        	<td class="text-center"><?php echo $prod['Modelo']; ?></td>
-                        	<td class="text-center"><?php echo $prod['Marca']; ?></td>
+                        	<td class="text-center"><?php echo $prod['Canton']; ?></td>
+                        	<td class="text-center"><?php echo $prod['Provincia']; ?></td>
                         	<td class="text-center"><?php echo $prod['cantidad']; ?></td>
                         	<td class="text-center">
                         		<?php
@@ -80,11 +80,11 @@
                         		<?php echo $prod['Estado']; ?>
                         	</td>
                         	<td class="text-center">
-                        		<a href="configAdmin.php?view=productinfo&code=<?php echo $prod['CodigoProd']; ?>" class="btn btn-raised btn-xs btn-success">Actualizar</a>
+                        		<a href="configAdmin.php?view=productinfo&code=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-raised btn-xs btn-success">Actualizar</a>
                         	</td>
                         	<td class="text-center">
                         		<form action="process/delprod.php" method="POST" class="FormCatElec" data-form="delete">
-                        			<input type="hidden" name="prod-code" value="<?php echo $prod['CodigoProd']; ?>">
+                        			<input type="hidden" name="prod-code" value="<?php echo $prod['CodigoDestino']; ?>">
                         			<button type="submit" class="btn btn-raised btn-xs btn-danger">Eliminar</button>	
                         		</form>
                         	</td>

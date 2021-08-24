@@ -23,7 +23,7 @@ include './library/consulSQL.php';
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                        <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o marca del producto">
+                        <input type="text" id="addon1" class="form-control" name="term" required="" title="Escriba nombre o Provincia del producto">
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-raised" type="submit">Buscar</button>
                         </span>
@@ -47,7 +47,7 @@ include './library/consulSQL.php';
                     $regpagina = 20;
                     $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                    $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE NombreProd LIKE '%".$search."%' OR Modelo LIKE '%".$search."%' OR Marca LIKE '%".$search."%' LIMIT $inicio, $regpagina");
+                    $consultar_productos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM producto WHERE NombreDestino LIKE '%".$search."%' OR Canton LIKE '%".$search."%' OR Provincia LIKE '%".$search."%' LIMIT $inicio, $regpagina");
 
                     $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                     $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
@@ -55,7 +55,7 @@ include './library/consulSQL.php';
                     $numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
                     if(mysqli_num_rows($consultar_productos)>=1){
-                      echo '<div class="col-xs-12"><h3 class="text-center">Se muestran los productos con el nombre, marca o modelo <strong>"'.$search.'"</strong></h3></div><br>';
+                      echo '<div class="col-xs-12"><h3 class="text-center">Se muestran los productos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h3></div><br>';
                       while($prod=mysqli_fetch_array($consultar_productos, MYSQLI_ASSOC)){
                   ?>
                       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -63,11 +63,11 @@ include './library/consulSQL.php';
                              <img src="./assets/img-products/<?php if($prod['Imagen']!="" && is_file("./assets/img-products/".$prod['Imagen'])){ echo $prod['Imagen']; }else{ echo "default.png"; } ?>
                              ">
                              <div class="caption">
-                               <h3><?php echo $prod['Marca']; ?></h3>
-                               <p><?php echo $prod['NombreProd']; ?></p>
+                               <h3><?php echo $prod['Provincia']; ?></h3>
+                               <p><?php echo $prod['NombreDestino']; ?></p>
                                <p>$<?php echo $prod['Precio']; ?></p>
                                <p class="text-center">
-                                   <a href="infoProd.php?CodigoProd=<?php echo $prod['CodigoProd']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                                   <a href="infoProd.php?CodigoDestino=<?php echo $prod['CodigoDestino']; ?>" class="btn btn-primary btn-raised btn-sm btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
                                </p>
 
                              </div>
@@ -124,14 +124,14 @@ include './library/consulSQL.php';
                   <?php
                     endif;
                     }else{
-                      echo '<h2 class="text-center">Lo sentimos, no hemos encontrado productos con el nombre, marca o modelo <strong>"'.$search.'"</strong></h2>';
+                      echo '<h2 class="text-center">Lo sentimos, no hemos encontrado productos con el nombre, Provincia o Canton <strong>"'.$search.'"</strong></h2>';
                     }
                   ?>
                 </div>
               </div>
             <?php
               }else{
-                  echo '<h2 class="text-center">Por favor escriba el nombre o marca del producto que desea buscar</h2>';
+                  echo '<h2 class="text-center">Por favor escriba el nombre o Provincia del producto que desea buscar</h2>';
               }
             ?>
         </div>

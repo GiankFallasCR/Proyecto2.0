@@ -22,12 +22,12 @@
                             $sumaA = 0;
                             echo '<table class="table table-bordered table-hover"><thead><tr class="bg-success"><th>Nombre</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th>Acciones</th></tr></thead>';
                             foreach($_SESSION['carro'] as $codeProd){
-                                $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoProd='".$codeProd['producto']."'");
+                                $consulta=ejecutarSQL::consultar("SELECT * FROM producto WHERE CodigoDestino='".$codeProd['producto']."'");
                                 while($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
                                     $pref=number_format(($fila['Precio']-($fila['Precio']*($fila['Descuento']/100))), 2, '.', '');
                                         echo "<tbody>
                                             <tr>
-                                                <td>".$fila['NombreProd']."</td>
+                                                <td>".$fila['NombreDestino']."</td>
                                                 <td> ".$pref."</td>
                                                 <td> ".$codeProd['cantidad']."</td>
                                                 <td> ".$pref*$codeProd['cantidad']."</td>
