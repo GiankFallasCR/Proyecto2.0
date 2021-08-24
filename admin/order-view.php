@@ -6,20 +6,17 @@
         <div class="col-xs-12">
             <br><br>
             <div class="panel panel-info">
-                <div class="panel-heading text-center"><h4>Pedidos de la tienda</h4></div>
+                <div class="panel-heading text-center"><h4>Usuarios de la Página</h4></div>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="">
                             <tr>
-                              <th class="text-center">#</th>
-                                <th class="text-center">N. Deposito</th>
-                                <th class="text-center">Fecha</th>
-                                <th class="text-center">Cliente</th>
-                                <th class="text-center">Total</th>
-                                <th class="text-center">Estado</th>
-                                <th class="text-center">Envío</th>
-                                <th class="text-center">Opciones</th>
-                                <th class="text-center">Eliminar</th>
+                              <th class="text-center">ID</th>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Apellido</th>
+                                <th class="text-center">Direccion</th>
+                                <th class="text-center">Teléfono</th>
+                                <th class="text-center">Email</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +28,7 @@
                                 $regpagina = 30;
                                 $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                                $pedidos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM venta LIMIT $inicio, $regpagina");
+                                $pedidos=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS * FROM cliente LIMIT $inicio, $regpagina");
 
                                 $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                                 $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
@@ -42,31 +39,32 @@
                               while($order=mysqli_fetch_array($pedidos, MYSQLI_ASSOC)){
                             ?>
                             <tr>
-                              <td class="text-center"><?php echo $cr; ?></td>
-                            <td class="text-center"><?php echo $order['NumeroDeposito']; ?></td>
-                            <td class="text-center"><?php echo $order['Fecha']; ?></td>
+                            <td class="text-center"><?php echo $cr; ?></td>
+                            <td class="text-center"><?php echo $order['NombreCompleto']; ?></td>
+                            <td class="text-center"><?php echo $order['Apellido']; ?></td>
                             <td>
                                 <?php 
-                                    $conUs= ejecutarSQL::consultar("SELECT Nombre FROM cliente WHERE Cedula='".$order['Cedula']."'");
+                                    $conUs= ejecutarSQL::consultar("SELECT NombreCompleto,apellido,Direccion,Telefono,Email FROM cliente WHERE Cedula='".$order['Cedula']."'");
                                     $UsP=mysqli_fetch_array($conUs, MYSQLI_ASSOC);
                                     echo $UsP['Nombre'];
                                 ?>
                             </td>
-                            <td class="text-center"><?php echo $order['TotalPagar']; ?></td>
-                            <td class="text-center"><?php echo $order['Estado']; ?></td>
-                            <td class="text-center"><?php echo $order['TipoEnvio']; ?></td>
+                            
+                            <td class="text-center"><?php echo $order['Direccion']; ?></td>
+                            <td class="text-center"><?php echo $order['Telefono']; ?></td>
+                            <td class="text-center"><?php echo $order['Email']; ?></td>
                             <td class="text-center">
-                                <a href="#!" class="btn btn-raised btn-xs btn-success btn-block btn-up-order" data-code="<?php echo $order['NumPedido']; ?>">Actualizar</a>
+                                <a href="#!" class="btn btn-raised btn-xs btn-success btn-block btn-up-order" data-code="<?php echo $order['Cedula']; ?>">Actualizar</a>
                                 <?php 
                                     if(is_file("./assets/comprobantes/".$order['Adjunto'])){
                                       echo '<a href="./assets/comprobantes/'.$order['Adjunto'].'" target="_blank" class="btn btn-raised btn-xs btn-info btn-block">Comprobante</a>';
                                     }
                                 ?>
-                                <a href="./report/factura.php?id=<?php echo $order['NumPedido'];  ?>" class="btn btn-raised btn-xs btn-primary btn-block" target="_blank">Imprimir</a>
+                                <a href="./report/factura.php?id=<?php echo $order['Cedula'];  ?>" class="btn btn-raised btn-xs btn-primary btn-block" target="_blank">Imprimir</a>
                             </td>
                             <td class="text-center">
                               <form action="process/delPedido.php" method="POST" class="FormCatElec" data-form="delete">
-                                <input type="hidden" name="num-pedido" value="<?php echo $order['NumPedido']; ?>">
+                                <input type="hidden" name="num-pedido" value="<?php echo $order['Cedula']; ?>">
                                 <button type="submit" class="btn btn-raised btn-xs btn-danger">Eliminar</button>  
                               </form>
                             </td>
