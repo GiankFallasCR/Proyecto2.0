@@ -24,11 +24,6 @@
               </a>
             </li>
             <li>
-              <a href="configAdmin.php?view=provider">
-                <i class="fa fa-truck" aria-hidden="true"></i> &nbsp; Proveedores
-              </a>
-            </li>
-            <li>
               <a href="configAdmin.php?view=category">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i> &nbsp; Categorías
               </a>
