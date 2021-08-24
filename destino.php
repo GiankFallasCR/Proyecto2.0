@@ -10,7 +10,7 @@ include './library/consulSQL.php';
 </head>
 <body id="container-page-product">
     <?php include './inc/navbar.php'; ?>
-    <section id="Viejitico">
+    <section id="store">
        <br>
         <div class="container">
             <div class="page-header">
