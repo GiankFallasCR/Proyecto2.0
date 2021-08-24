@@ -21,7 +21,7 @@
                 	$destino=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='$code'");
                 	$prod=mysqli_fetch_array($destino, MYSQLI_ASSOC);
                 ?>
-                <form action="./process/updatedestino.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="update">
+                <form action="./process/updateDestino.php" method="POST" enctype="multipart/form-data" class="FormCatElec" data-form="update">
                 	<input type="hidden" name="code-old-prod" value="<?php echo $prod['CodigoDestino']; ?>">
                     <div class="container-fluid">
                         <div class="row">
