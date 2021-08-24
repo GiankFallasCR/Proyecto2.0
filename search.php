@@ -34,7 +34,7 @@ include './library/consulSQL.php';
               </div>
             </div>
             <?php
-              $search=consultasSQL::clean_string($_GET['term']);
+              $search=consultasSQL::clean_string($_GET['searchterm']);
               if(isset($search) && $search!=""){
             ?>
               <div class="container-fluid">

@@ -20,7 +20,7 @@
                 </video>
                 <form action="./search.php" method="GET">
                 <div class="field" id="searchform">
-                    <input type="text" id="searchterm" placeholder="A dónde quieres ir?" />
+                    <input type="text" id="searchterm" name="searchterm" placeholder="A dónde quieres ir?" />
                     <button type="submit" id="search">Buscar!</button>
                     </div>
                 </form>    
