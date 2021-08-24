@@ -67,7 +67,7 @@ if(mysqli_num_rows($verdata)>=1){
       		$preP=ejecutarSQL::consultar("SELECT * FROM destino WHERE CodigoDestino='".$carro['destino']."'");
       		$filaP=mysqli_fetch_array($preP, MYSQLI_ASSOC);
           $pref=number_format($filaP['Precio']-($filaP['Precio']*($filaP['Descuento']/100)), 2, '.', '');
-          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoDestino, Cantidaddestinos, PrecioProd", "'$Numpedido', '".$carro['destino']."', '".$carro['cantidad']."', '$pref'");
+          	consultasSQL::InsertSQL("detalle", "NumPedido, CodigoDestino, Cantidaddestinos, PrecioDestino", "'$Numpedido', '".$carro['destino']."', '".$carro['cantidad']."', '$pref'");
           	mysqli_free_result($preP);
 
         /*Restando cantidad a cada destino seleccionado en el carrito*/
