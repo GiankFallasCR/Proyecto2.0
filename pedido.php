@@ -157,14 +157,7 @@
                         <label>Numero de deposito</label>
                         <input class="form-control" type="text" name="NumDepo" placeholder="Numero de deposito" maxlength="50" required="">
                     </div>
-                    <div class="form-group">
-                      <span>Tipo De Envio</span>
-                      <select class="form-control" name="tipo-envio" data-toggle="tooltip" data-placement="top" title="Elige El Tipo De Envio">
-                          <option value="" disabled="" selected="">Selecciona una opción</option>
-                          <option value="Recoger Por Tienda">Recoger Por Tienda</option>
-                          <option value="Envio Por Currier">Envio Gratis</option> 
-                      </select>
-                   </div>
+                    
                     <input type="hidden" name="Cedclien" value="<?php echo $_SESSION['UserCedula']; ?>">
                     <div class="form-group">
                       <input type="file" name="comprobante">
