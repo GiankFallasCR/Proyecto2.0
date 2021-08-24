@@ -4,11 +4,11 @@ include '../library/configServer.php';
 include '../library/consulSQL.php';
 
 $NumPedidoDel=consultasSQL::clean_string($_POST['num-pedido']);
-if(consultasSQL::DeleteSQL('detalle', "NumPedido='".$NumPedidoDel."'") && consultasSQL::DeleteSQL("venta", "NumPedido='".$NumPedidoDel."'")){
+if(consultasSQL::DeleteSQL('cliente', "Cedula='".$NumPedidoDel."'")){
     echo '<script>
 	    swal({
-	      title: "Pedido eliminado",
-	      text: "El pedido se eliminó con éxito",
+	      title: "Usuario eliminado",
+	      text: "El usuario se eliminó con éxito",
 	      type: "success",
 	      showCancelButton: true,
 	      confirmButtonClass: "btn-danger",

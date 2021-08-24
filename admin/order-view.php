@@ -42,14 +42,6 @@
                             <td class="text-center"><?php echo $cr; ?></td>
                             <td class="text-center"><?php echo $order['NombreCompleto']; ?></td>
                             <td class="text-center"><?php echo $order['Apellido']; ?></td>
-                            <td>
-                                <?php 
-                                    $conUs= ejecutarSQL::consultar("SELECT NombreCompleto,apellido,Direccion,Telefono,Email FROM cliente WHERE Cedula='".$order['Cedula']."'");
-                                    $UsP=mysqli_fetch_array($conUs, MYSQLI_ASSOC);
-                                    echo $UsP['Nombre'];
-                                ?>
-                            </td>
-                            
                             <td class="text-center"><?php echo $order['Direccion']; ?></td>
                             <td class="text-center"><?php echo $order['Telefono']; ?></td>
                             <td class="text-center"><?php echo $order['Email']; ?></td>
@@ -60,7 +52,6 @@
                                       echo '<a href="./assets/comprobantes/'.$order['Adjunto'].'" target="_blank" class="btn btn-raised btn-xs btn-info btn-block">Comprobante</a>';
                                     }
                                 ?>
-                                <a href="./report/factura.php?id=<?php echo $order['Cedula'];  ?>" class="btn btn-raised btn-xs btn-primary btn-block" target="_blank">Imprimir</a>
                             </td>
                             <td class="text-center">
                               <form action="process/delPedido.php" method="POST" class="FormCatElec" data-form="delete">
