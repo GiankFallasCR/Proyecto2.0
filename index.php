@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Inicio</title>
+    <title>TiajiTico</title>
     <?php include './inc/link.php'; ?>
 </head>
 
@@ -10,33 +10,33 @@
     
     <section id="slider-store" class="carousel slide" data-ride="carousel" style="padding: 0;">
 
-        <!-- Indicators -->
+        <!-- Indicators 
         <ol class="carousel-indicators">
             <li data-target="#slider-store" data-slide-to="0" class="active"></li>
             <li data-target="#slider-store" data-slide-to="1"></li>
             <li data-target="#slider-store" data-slide-to="2"></li>
         </ol>
-
+        -->
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
+
             <div class="item active">
-                <img src="./assets/img/slider1.jpg" alt="slider1">
-                <div class="carousel-caption">
-                    Text Slider 1
+                <video id="crvideo">
+                    <source src="video/CostaRican.mp4" type="video/mp4">
+                    <source src="Video/CostaRican.mp4" type="video/ogg">
+                </video>
+                <div class="field" id="searchform">
+                    <input type="text" id="searchterm" placeholder="A dónde quieres ir?" />
+                    <button type="button" id="search">Buscar!</button>
                 </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#1ABC9C" fill-opacity="1"
+                        d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,245.3C672,256,768,256,864,234.7C960,213,1056,171,1152,165.3C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
             </div>
-            <div class="item">
-                <img src="./assets/img/slider2.jpg" alt="slider2">
-                <div class="carousel-caption">
-                    Text Slider 2
-                </div>
-            </div>
-            <div class="item">
-                <img src="./assets/img/slider3.jpg" alt="slider3">
-                <div class="carousel-caption">
-                    Text Slider 3
-                </div>
-            </div>
+
+
         </div>
 
         <!-- Controls -->
@@ -54,16 +54,16 @@
     <section id="new-prod-index">    
          <div class="container">
             <div class="page-header">
-                <h1>Últimos <small>productos agregados</small></h1>
+                <h1>Últimos <small>destinos agregados</small></h1>
             </div>
             <div class="row">
               	<?php
                   include 'library/configServer.php';
                   include 'library/consulSQL.php';
                   $consulta= ejecutarSQL::consultar("SELECT * FROM producto WHERE Stock > 0 AND Estado='Activo' ORDER BY id DESC LIMIT 7");
-                  $totalproductos = mysqli_num_rows($consulta);
+                  $totalproductos = oci_num_rows($consulta);
                   if($totalproductos>0){
-                      while($fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC)){
+                      while($fila=oci_fetch_array($consulta, OCI_ASSOC + OCI_RETURN_NULLS)){
                 ?>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                      <div class="thumbnail">
@@ -90,7 +90,7 @@
                 <?php
                      }   
                   }else{
-                      echo '<h2>No hay productos registrados en la tienda</h2>';
+                      echo '<h2>No hay destinos registrados en el sistema</h2>';
                   }  
               	?>  
             </div>
@@ -103,7 +103,7 @@
                    <article style="margin-top:5%;">
                         <p><i class="fa fa-users fa-4x"></i></p>
                         <h3>Registrate</h3>
-                        <p>Registrate como cliente de <span class="tittles-pages-logo">STORE</span> en un sencillo formulario para poder completar tus pedidos</p>
+                        <p>Registrate como cliente de <span class="tittles-pages-logo">ViajiTico</span> en un sencillo formulario para poder completar tus pedidos</p>
                         <p><a href="registration.php" class="btn btn-info btn-raised btn-block">Registrarse</a></p>   
                    </article>
                 </div>
