@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link href="./css/galeria.css" rel="stylesheet" />
     <title>TiajiTico</title>
     <?php include './inc/link.php'; ?>
 </head>
