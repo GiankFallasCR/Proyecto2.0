@@ -36,6 +36,7 @@ class consultasSQL{
         }
         return $consul;
     }
+    //previene inyeccion de codigo SQL
     public static function clean_string($val){
         $val=trim($val);
         $val=stripslashes($val);
