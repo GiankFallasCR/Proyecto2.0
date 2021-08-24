@@ -5,13 +5,12 @@
 <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
             <div class="col-xs-4">
-                <p class="text-navbar tittles-pages-logo">ViajiTico</p>
+            <a href="index.php"><p class="text-navbar tittles-pages-logo">ViajiTico</p></a>
             </div>
             <div class="col-xs-8">
               <div class="contenedor-tabla pull-right">
                 <div class="contenedor-tr">
                   <a href="index.php" class="table-cell-td">Inicio</a>
-                  <a href="destino.php" class="table-cell-td">Destinos</a>
                   <?php
                       if(!$_SESSION['nombreAdmin']==""){
                           echo ' 
@@ -125,18 +124,19 @@
     
     <div id="mobile-menu-list" class="hidden-sm hidden-md hidden-lg">
         <br>
-        <h3 class="text-center tittles-pages-logo">STORE</h3>
+        <h3 class="text-center tittles-pages-logo">ViajiTico</h3>
         <button class="btn btn-default button-mobile-menu" id="button-close-mobile-menu">
         <i class="fa fa-times"></i>
         </button>
         <br><br>
         <ul class="list-unstyled text-center">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="destino.php">Destinos</a></li>
+            
             <li><a href="carrito.php">Carrito</a></li>
             <?php 
                 if(!$_SESSION['nombreAdmin']==""){
-                    echo '<li><a href="configAdmin.php">Administración</a></li>';
+                    echo '<li><a href="destino.php">Destinos</a></li>
+                          <li><a href="configAdmin.php">Administración</a></li>';
                 }elseif(!$_SESSION['nombreUser']==""){
                     echo '
                     <li><a href="pedido.php">Pedido</a></li>
