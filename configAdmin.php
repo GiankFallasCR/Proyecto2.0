@@ -46,7 +46,7 @@
           </ul>
           <?php
             $content=$_GET['view'];
-            $WhiteList=["destino","destinolist","destinoinfo","provider","providerlist","providerinfo","category","categorylist","categoryinfo","admin","adminlist","order","bank","account"];
+            $WhiteList=["destino","destinolist","destinoinfo","admin","adminlist","order","bank","account"];
             if(isset($content)){
               if(in_array($content, $WhiteList) && is_file("./admin/".$content."-view.php")){
                 include "./admin/".$content."-view.php";

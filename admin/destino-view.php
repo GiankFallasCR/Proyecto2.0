@@ -8,7 +8,7 @@
         </a>
     </li>
     <li>
-        <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en tienda</a>
+        <a href="configAdmin.php?view=destinolist"><i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; destinos en la lista</a>
     </li>
 </ul>
 <div class="container">
