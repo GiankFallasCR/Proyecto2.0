@@ -24,11 +24,6 @@
               </a>
             </li>
             <li>
-              <a href="configAdmin.php?view=category">
-                <i class="fa fa-shopping-basket" aria-hidden="true"></i> &nbsp; Categorías
-              </a>
-            </li>
-            <li>
               <a href="configAdmin.php?view=admin">
                 <i class="fa fa-users" aria-hidden="true"></i> &nbsp; Administradores
               </a>
