@@ -53,7 +53,7 @@
     <section id="new-prod-index">    
          <div class="container">
             <div class="page-header">
-                <h1>Últimos <small>detinos agregados</small></h1>
+                <h1>Destinos <small> agregados</small></h1>
             </div>
             <div class="row">
               	<?php
