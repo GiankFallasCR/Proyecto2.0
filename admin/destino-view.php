@@ -43,7 +43,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-4">
                               <div class="form-group label-floating">
                                 <label class="control-label">Canton</label>
-                                <input type="text" class="form-control" required name="destino-model">
+                                <input type="text" class="form-control" required name="destino-canton">
                               </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4">
